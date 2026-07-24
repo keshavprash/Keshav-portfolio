@@ -1,0 +1,196 @@
+/* =========================================================
+   custom.css — additions on top of style.css
+   Skill tags, project cards, about layout polish, responsive
+   ========================================================= */
+
+/* ---------- About section polish ---------- */
+.about-summary {
+  color: #E5E5E5;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-info li span:first-child {
+  color: #6EC5B8;
+  font-weight: 600;
+}
+
+/* ---------- Skill category blocks ---------- */
+.skills-wrap {
+  width: 100%;
+}
+
+.skill-category {
+  margin-bottom: 34px;
+}
+
+.skill-category h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FFAC00;
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 14px;
+}
+
+.skill-category h3:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6EC5B8;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-tags li {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 172, 0, 0.35);
+  color: #E5E5E5;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 30px;
+  transition: 0.25s ease-in-out;
+}
+
+.skill-tags li:hover {
+  background: #FFAC00;
+  color: #000;
+  border-color: #FFAC00;
+  transform: translateY(-2px);
+}
+
+/* ---------- Project cards ---------- */
+.project-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 2em;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  border-color: #FFAC00;
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.project-card h3 {
+  color: #fff;
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.project-stack li {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #FFAC00;
+  background: rgba(255, 172, 0, 0.12);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.project-card ul.project-points {
+  text-align: left;
+  color: #cfcfcf;
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding-left: 18px;
+  margin-bottom: 0;
+}
+
+.project-card ul.project-points li {
+  margin-bottom: 6px;
+}
+
+/* ---------- Contact extra boxes ---------- */
+.contact-info .box a {
+  word-break: break-word;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   320 / 375 / 425 / 768 / 1024 / 1440 / 1920
+   ========================================================= */
+
+/* Small phones: 320px - 374px */
+@media (max-width: 374.98px) {
+  .hero-wrap .text h1 { font-size: 34px; }
+  .hero-wrap .text h2 { font-size: 16px; }
+  .services-1, .project-card { padding: 1.4em; }
+  .skill-tags li { font-size: 13px; padding: 6px 12px; }
+}
+
+/* Standard phones: 375px - 424px */
+@media (min-width: 375px) and (max-width: 424.98px) {
+  .hero-wrap .text h1 { font-size: 38px; }
+}
+
+/* Large phones: 425px - 767px */
+@media (min-width: 425px) and (max-width: 767.98px) {
+  .hero-wrap .text h1 { font-size: 42px; }
+  .project-card { margin-bottom: 24px; }
+}
+
+/* Tablets: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .about-summary { font-size: 15px; }
+  .project-card { margin-bottom: 30px; }
+  #navi { position: relative; top: 0; margin-bottom: 30px; }
+}
+
+/* Small laptops: 1024px - 1439px */
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+  .project-card { padding: 1.8em; }
+}
+
+/* Desktop / large screens: 1440px - 1919px */
+@media (min-width: 1440px) and (max-width: 1919.98px) {
+  .container-fluid.px-md-5 { padding-left: 4rem; padding-right: 4rem; }
+}
+
+/* Ultra-wide: 1920px and up */
+@media (min-width: 1920px) {
+  body { font-size: 17px; }
+  .container-fluid.px-md-5 { max-width: 1800px; margin: 0 auto; }
+}
+
+/* General small-screen safety fixes */
+@media (max-width: 767.98px) {
+  .navbar-brand { font-size: 18px; }
+  #resume-section .col-md-3 { margin-bottom: 20px; }
+  #navi { position: relative; top: 0; }
+  #navi ul { display: flex; flex-wrap: wrap; gap: 10px; }
+  #navi li { margin-right: 10px; margin-bottom: 6px; }
+  .project-card { margin-bottom: 24px; }
+}
