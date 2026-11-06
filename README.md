@@ -2,47 +2,62 @@
 
 Live site: **https://keshavprash.github.io/Keshav-portfolio/**
 
-A static, dependency-free portfolio for Keshav Prashar — Full Stack Developer (React.js / MERN stack).
+A cinematic 2D + 3D portfolio. A real Three.js world sits behind the page, and an original anime-inspired character painted in 2D stands inside it. Each section of the page is a camera shot.
 
 ## Stack
 
-Plain HTML, CSS and JavaScript. No build step, no framework, no runtime dependencies.
+Plain HTML, CSS and JavaScript modules, with no framework and no build step. Three.js is the only library, and it only downloads on devices that will use it.
 
-| File | Purpose |
+| Path | Purpose |
 |---|---|
-| `index.html` | The entire page |
-| `css/site.css` | Design system, components, responsive rules, reduced-motion rules |
-| `js/site.js` | Nav, scrollspy, reveals, typing, parallax, petal canvas, tabs, copy-email |
-| `robots.txt`, `sitemap.xml` | SEO |
-| `.github/workflows/static.yml` | GitHub Pages deployment — **do not modify** |
+| `index.html`, `css/site.css` | The page and its design |
+| `js/site.js` | Entry point |
+| `js/ui/` | Navigation, scroll interactions, copy-email |
+| `js/3d/capability.js` | Chooses a quality tier, before any 3D code loads |
+| `js/3d/stage.js` | Lazy-loads the scene, crossfades, handles fallback |
+| `js/3d/scene.js` | Renderer and world setup, resize, disposal |
+| `js/3d/loop.js` | Animation loop, pausing, frame-rate governor |
+| `js/3d/camera-rig.js` | Camera shots, scroll and pointer control |
+| `js/3d/post.js` | HDR pipeline and bloom |
+| `js/3d/world/` | Sky, city, signs, rooftop, workstation, character, weather |
+| `js/fallback/parallax-2d.js` | 2D parallax and rain |
+| `.github/workflows/static.yml` | GitHub Pages deployment |
+| `CREDITS.md` | Asset and licence record |
 
-## The hero animation
+## How it adapts
 
-The night-rooftop scene and the seated developer figure are original SVG artwork
-authored for this site. Nothing is traced from or derived from any existing
-character, artwork or franchise.
+| Device | Experience |
+|---|---|
+| Dedicated GPU | Full 3D: live reflections, MSAA, bloom |
+| Integrated GPU, capable phone | 3D at reduced resolution and effects |
+| Weak phone | Simple 3D: no post-processing or reflections |
+| No WebGL2, software rendering, data saver, reduced motion | The 2D layered scene. Three.js is never downloaded |
+| No JavaScript | The 2D scene and all content |
 
-Layers are moved on pointer and scroll via `transform: translate3d` only.
-Drifting petals are drawn on a `<canvas>` that pauses when the hero scrolls out of
-view or the tab is hidden. All of it is disabled under `prefers-reduced-motion: reduce`.
+If a device cannot hold its frame rate, the scene steps its own quality down, and finally hands over to the 2D scene. Rendering stops while the tab is hidden and slows while reading below the hero.
 
-## Adding project links later
+Add `?quality=high`, `medium`, `low` or `2d` to the URL to view a specific path. Add `&lockquality` to stop the scene adjusting itself.
 
-No repository or live-demo URLs have been verified, so no link buttons are rendered.
-Search `index.html` for `ADDING LINKS LATER` — the comment there contains the exact
-block to paste into a project card. Styling is already in place.
+## Editing content
 
-## Legacy files
+All text is in `index.html`. Project links go in each `.project` card, and only verified links should be added. To restore a résumé link, make the Google Drive file viewable by "Anyone with the link" first, then add it to the nav in `index.html`.
 
-The previous theme's assets (`css/style.css`, `js/main.js`, jQuery, Bootstrap, AOS,
-Owl, Stellar, Scrollax, Magnific, particles.js, icomoon and flaticon fonts) are kept
-in the repository but are no longer referenced by `index.html`. They are retained so
-the original design can be restored. Branch `backup/original-main` and tag
-`backup-pre-upgrade-2026-11-06` hold the pre-upgrade site.
+## Updating Three.js
+
+`js/vendor/three.custom.min.js` is a tree-shaken build that exports only what the site uses. To rebuild it, create an entry file that re-exports those names from `three` (plus `Reflector` from `three/addons/objects/Reflector.js`), then run:
+
+```bash
+npx esbuild entry.js --bundle --minify --format=esm --target=es2020 --legal-comments=none --outfile=js/vendor/three.custom.min.js
+```
 
 ## Local preview
 
+JavaScript modules need a web server, so opening `index.html` directly will not run them.
+
 ```bash
-python3 -m http.server 8080
-# then open http://localhost:8080/
+npx serve .
 ```
+
+## Older files
+
+The previous theme's assets (`css/style.css`, `js/main.js`, jQuery, Bootstrap and others) remain in the repository but are not loaded by the page. Recovery points: branch `backup/original-main`, tags `backup-pre-upgrade-2026-11-06` and `backup-pre-3d-2026-11-06`.
