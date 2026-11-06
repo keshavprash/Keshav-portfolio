@@ -3,562 +3,843 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="theme-color" content="#06070E">
 
-	<title>Keshav Prashar | Web Developer Portfolio</title>
-	<meta name="description" content="Keshav Prashar is a Web Developer specializing in the MERN stack, building responsive web applications, REST APIs, and full-stack platforms.">
+	<title>Keshav Prashar — Full Stack Developer | React.js &amp; MERN Stack</title>
+	<meta name="description" content="Keshav Prashar is a Full Stack Developer specialising in React.js and the MERN stack — building responsive web applications, REST APIs, JWT authentication and real-time features with Node.js, Express.js and MongoDB.">
 	<meta name="author" content="Keshav Prashar">
-	<link rel="canonical" href="https://keshavprash.github.io/">
+	<meta name="robots" content="index, follow, max-image-preview:large">
+	<link rel="canonical" href="https://keshavprash.github.io/Keshav-portfolio/">
 
 	<!-- Open Graph -->
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Keshav Prashar | Web Developer Portfolio">
-	<meta property="og:description" content="Web Developer specializing in the MERN stack — building responsive web applications, REST APIs, and full-stack platforms.">
-	<meta property="og:image" content="images/Keshavprashar.jpeg">
-	<meta property="og:url" content="https://keshavprash.github.io/">
+	<meta property="og:site_name" content="Keshav Prashar — Portfolio">
+	<meta property="og:title" content="Keshav Prashar — Full Stack Developer | React.js &amp; MERN Stack">
+	<meta property="og:description" content="Full Stack Developer specialising in React.js and the MERN stack — responsive web applications, REST APIs, JWT authentication and real-time features.">
+	<meta property="og:url" content="https://keshavprash.github.io/Keshav-portfolio/">
+	<meta property="og:image" content="https://keshavprash.github.io/Keshav-portfolio/images/Keshavprashar.jpeg">
+	<meta property="og:image:alt" content="Portrait of Keshav Prashar, Full Stack Developer">
+	<meta property="og:locale" content="en_IN">
 
-	<!-- Twitter Card -->
+	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Keshav Prashar | Web Developer Portfolio">
-	<meta name="twitter:description" content="Web Developer specializing in the MERN stack — building responsive web applications, REST APIs, and full-stack platforms.">
-	<meta name="twitter:image" content="images/Keshavprashar.jpeg">
+	<meta name="twitter:title" content="Keshav Prashar — Full Stack Developer | React.js &amp; MERN Stack">
+	<meta name="twitter:description" content="Full Stack Developer specialising in React.js and the MERN stack — responsive web applications, REST APIs and real-time features.">
+	<meta name="twitter:image" content="https://keshavprash.github.io/Keshav-portfolio/images/Keshavprashar.jpeg">
 
-	<!-- Favicon -->
+	<!-- Icons (relative paths — correct under the /Keshav-portfolio/ base) -->
 	<link rel="icon" type="image/png" href="images/kp.png">
 	<link rel="apple-touch-icon" href="images/kp.png">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- Google Fonts loaded without blocking first paint. display=swap keeps text visible;
+	     if the request fails entirely the site falls back to system fonts and still works. -->
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+	<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null"
+	      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+	<noscript>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+	</noscript>
 
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="css/aos.css">
-	<link rel="stylesheet" href="css/flaticon.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/site.css">
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Keshav Prashar",
+		"url": "https://keshavprash.github.io/Keshav-portfolio/",
+		"image": "https://keshavprash.github.io/Keshav-portfolio/images/Keshavprashar.jpeg",
+		"jobTitle": "Full Stack Developer",
+		"email": "mailto:keshavprashar597@gmail.com",
+		"telephone": "+91-7633853037",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Jaipur",
+			"addressRegion": "Rajasthan",
+			"addressCountry": "IN"
+		},
+		"alumniOf": {
+			"@type": "CollegeOrUniversity",
+			"name": "Poornima Institute of Engineering & Technology"
+		},
+		"knowsAbout": ["React.js","Node.js","Express.js","MongoDB","JavaScript","MERN Stack","REST APIs","Redux Toolkit","JWT Authentication","MySQL"],
+		"sameAs": [
+			"https://github.com/keshavprash",
+			"https://www.linkedin.com/in/keshav-prashar-9277b2256"
+		]
+	}
+	</script>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light site-navbar-target"
-		id="ftco-navbar">
-		<div class="container">
-			<a class="navbar-brand" href="index.html">Keshav Prashar</a>
-			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
+	<a class="skip-link" href="#main">Skip to main content</a>
+
+	<div class="loader" id="loader" role="status" aria-label="Loading portfolio">
+		<div>
+			<div class="loader__mark">Keshav Prashar</div>
+			<div class="loader__bar"><i></i></div>
+		</div>
+	</div>
+
+	<div class="progress" id="progress" aria-hidden="true"></div>
+
+	<!-- ===================== NAV ===================== -->
+	<header class="nav" id="nav">
+		<div class="wrap nav__inner">
+			<a class="brand" href="#home" aria-label="Keshav Prashar — home">
+				<span class="brand__dot" aria-hidden="true"></span>Keshav Prashar
+			</a>
+
+			<button class="nav__toggle" id="navtoggle" type="button"
+				aria-expanded="false" aria-controls="navlist" aria-label="Toggle navigation menu">
+				<span aria-hidden="true"></span>
 			</button>
 
-			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav nav ml-auto">
-					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-					<li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-					<li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-				</ul>
+			<nav id="navlist" class="nav__list" aria-label="Primary">
+				<a class="nav__link" href="#home">Home</a>
+				<a class="nav__link" href="#about">About</a>
+				<a class="nav__link" href="#resume">Résumé</a>
+				<a class="nav__link" href="#work">Projects</a>
+				<a class="nav__link" href="#contact">Contact</a>
+				<a class="btn btn--ghost nav__cta" href="https://drive.google.com/file/d/168f3Vl1Ovfl6v-AZoG8Cg34N88siJEzO/view?usp=drivesdk" target="_blank" rel="noopener">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					Résumé
+				</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+
+	<!-- ===================== HERO ===================== -->
+	<section class="hero" id="home">
+
+		<!-- Original layered 2D scene. All artwork below is drawn from scratch in SVG. -->
+		<div class="stage" aria-hidden="true">
+			<div class="stage__layer stage__sky"></div>
+
+			<!-- moon + starfield -->
+			<div class="stage__layer" data-depth="0.12">
+				<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+					<defs>
+						<radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+							<stop offset="0%"   stop-color="#FFE7B0" stop-opacity=".52"/>
+							<stop offset="38%"  stop-color="#FFC861" stop-opacity=".16"/>
+							<stop offset="100%" stop-color="#FFB224" stop-opacity="0"/>
+						</radialGradient>
+						<linearGradient id="moonBody" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0%"   stop-color="#FFF3D4"/>
+							<stop offset="100%" stop-color="#FFC55E"/>
+						</linearGradient>
+					</defs>
+					<circle cx="1118" cy="196" r="248" fill="url(#moonGlow)"/>
+					<circle cx="1118" cy="196" r="72"  fill="url(#moonBody)" opacity=".92"/>
+					<circle cx="1146" cy="176" r="58"  fill="#080A18"/>
+					<g fill="#FFFFFF">
+						<circle cx="148"  cy="118" r="1.5" opacity=".75"/><circle cx="296" cy="208" r="1.1" opacity=".5"/>
+						<circle cx="412"  cy="94"  r="1.8" opacity=".85"/><circle cx="540" cy="166" r="1.2" opacity=".6"/>
+						<circle cx="672"  cy="76"  r="1.4" opacity=".7"/> <circle cx="800" cy="196" r="1"   opacity=".45"/>
+						<circle cx="928"  cy="124" r="1.6" opacity=".8"/> <circle cx="236" cy="308" r="1.2" opacity=".5"/>
+						<circle cx="1312" cy="316" r="1.5" opacity=".65"/><circle cx="92"  cy="248" r="1.3" opacity=".55"/>
+						<circle cx="616"  cy="286" r="1"   opacity=".4"/> <circle cx="1020" cy="330" r="1.3" opacity=".5"/>
+						<circle cx="1392" cy="128" r="1.6" opacity=".7"/> <circle cx="360" cy="382" r="1"   opacity=".35"/>
+					</g>
+					<!-- shooting streak -->
+					<path d="M300 160 L392 118" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" opacity=".32"/>
+				</svg>
+			</div>
+
+			<!-- far ridge -->
+			<div class="stage__layer" data-depth="0.3">
+				<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+					<path d="M0 640 L120 552 L228 614 L352 496 L470 596 L598 512 L704 586 L838 478 L962 578 L1082 516 L1210 600 L1320 544 L1440 612 L1440 900 L0 900 Z"
+						  fill="#0D1024" opacity=".85"/>
+				</svg>
+			</div>
+
+			<!-- mid skyline with lit windows -->
+			<div class="stage__layer" data-depth="0.5">
+				<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+					<g fill="#050710">
+						<rect x="40"   y="638" width="92"  height="262" rx="2"/>
+						<rect x="150"  y="692" width="64"  height="208" rx="2"/>
+						<rect x="232"  y="600" width="112" height="300" rx="2"/>
+						<rect x="364"  y="676" width="78"  height="224" rx="2"/>
+						<rect x="462"  y="628" width="100" height="272" rx="2"/>
+						<rect x="582"  y="700" width="70"  height="200" rx="2"/>
+						<rect x="672"  y="586" width="124" height="314" rx="2"/>
+						<rect x="816"  y="666" width="86"  height="234" rx="2"/>
+						<rect x="922"  y="620" width="104" height="280" rx="2"/>
+						<rect x="1046" y="694" width="72"  height="206" rx="2"/>
+						<rect x="1138" y="612" width="116" height="288" rx="2"/>
+						<rect x="1274" y="672" width="90"  height="228" rx="2"/>
+					</g>
+					<g fill="#1B2140" opacity=".9">
+						<rect x="40"   y="638" width="92"  height="2"/><rect x="150"  y="692" width="64"  height="2"/>
+						<rect x="232"  y="600" width="112" height="2"/><rect x="364"  y="676" width="78"  height="2"/>
+						<rect x="462"  y="628" width="100" height="2"/><rect x="582"  y="700" width="70"  height="2"/>
+						<rect x="672"  y="586" width="124" height="2"/><rect x="816"  y="666" width="86"  height="2"/>
+						<rect x="922"  y="620" width="104" height="2"/><rect x="1046" y="694" width="72"  height="2"/>
+						<rect x="1138" y="612" width="116" height="2"/><rect x="1274" y="672" width="90"  height="2"/>
+					</g>
+					<!-- antenna masts -->
+					<g stroke="#050710" stroke-width="3">
+						<path d="M288 600 L288 556"/><path d="M734 586 L734 530"/><path d="M1196 612 L1196 566"/>
+					</g>
+					<g fill="#FF6B6B">
+						<circle cx="288" cy="552" r="2.6" opacity=".8"/>
+						<circle cx="734" cy="526" r="2.6" opacity=".8"/>
+						<circle cx="1196" cy="562" r="2.6" opacity=".8"/>
+					</g>
+					<!-- lit windows -->
+					<g fill="#FFB224" opacity=".55">
+						<rect x="56"   y="658" width="7" height="10"/><rect x="76"  y="686" width="7" height="10"/>
+						<rect x="100"  y="658" width="7" height="10"/><rect x="56"  y="716" width="7" height="10"/>
+						<rect x="252"  y="624" width="8" height="11"/><rect x="286" y="660" width="8" height="11"/>
+						<rect x="312"  y="624" width="8" height="11"/><rect x="252" y="700" width="8" height="11"/>
+						<rect x="482"  y="652" width="7" height="10"/><rect x="520" y="688" width="7" height="10"/>
+						<rect x="694"  y="610" width="8" height="11"/><rect x="730" y="648" width="8" height="11"/>
+						<rect x="766"  y="610" width="8" height="11"/><rect x="694" y="702" width="8" height="11"/>
+						<rect x="944"  y="644" width="7" height="10"/><rect x="986" y="680" width="7" height="10"/>
+						<rect x="1162" y="636" width="8" height="11"/><rect x="1210" y="674" width="8" height="11"/>
+						<rect x="1296" y="696" width="7" height="10"/>
+					</g>
+					<g fill="#5EEAD4" opacity=".4">
+						<rect x="172" y="716" width="7" height="10"/><rect x="390" y="700" width="7" height="10"/>
+						<rect x="604" y="724" width="7" height="10"/><rect x="840" y="690" width="7" height="10"/>
+						<rect x="1066" y="718" width="7" height="10"/><rect x="1322" y="700" width="7" height="10"/>
+					</g>
+				</svg>
+			</div>
+
+			<!-- foreground rooftop ledge, wires and poles -->
+			<div class="stage__layer" data-depth="0.9">
+				<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+					<path d="M0 806 L1440 806 L1440 900 L0 900 Z" fill="#06070E"/>
+					<path d="M0 806 L1440 806" stroke="#FFB224" stroke-width="1.5" opacity=".30"/>
+					<g stroke="#06070E" stroke-width="5" fill="none">
+						<path d="M118 806 L118 700"/><path d="M1280 806 L1280 672"/>
+					</g>
+					<g stroke="#11142B" stroke-width="2" fill="none">
+						<path d="M118 706 Q700 788 1280 678"/>
+						<path d="M118 724 Q700 812 1280 696"/>
+					</g>
+					<g fill="#5EEAD4" opacity=".55">
+						<circle cx="414" cy="762" r="2"/><circle cx="702" cy="786" r="2"/><circle cx="982" cy="760" r="2"/>
+					</g>
+				</svg>
 			</div>
 		</div>
-	</nav>
 
-	<div id="particles-js"></div>
+		<canvas id="petals" aria-hidden="true"></canvas>
 
-	<section class="hero-wrap js-fullheight" id="home-section">
-		<div class="container">
-			<div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
-				<div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
-					<div class="text text-center">
-						<span class="subheading">Hey! I am</span>
-						<h1>Keshav Prashar</h1>
-						<h2>I like
-							<span class="txt-rotate" data-period="2000"
-								data-rotate='[ "Coding.", "Software Development", "Problem Solving.", "Web Development."]'></span>
-						</h2>
+		<div class="wrap">
+			<div class="hero__grid">
+
+				<div class="hero__copy">
+					<p class="hero__badge rv" data-d="1">
+						<span class="pulse" aria-hidden="true"></span>Open to opportunities
+					</p>
+
+					<h1 class="hero__name rv" data-d="2">
+						<span class="l1">Keshav</span>
+						<span class="l2">Prashar</span>
+					</h1>
+
+					<p class="hero__role rv" data-d="3">
+						Full Stack Developer<span class="sep" aria-hidden="true">/</span>I build
+						<span class="typed" id="typed" data-words='["React.js interfaces","REST APIs with Node.js","real-time MERN apps","MongoDB-backed systems"]'>React.js interfaces</span><span class="caret" aria-hidden="true"></span>
+					</p>
+
+					<p class="hero__intro rv" data-d="4">
+						Computer Engineering graduate building responsive, full-stack web applications with
+						React.js, Node.js, Express.js and MongoDB — from JWT-secured REST APIs to real-time
+						interfaces that stay fast and usable.
+					</p>
+
+					<div class="hero__cta rv" data-d="5">
+						<a class="btn btn--primary" href="#work">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+							View Projects
+						</a>
+						<a class="btn btn--ghost" href="https://drive.google.com/file/d/168f3Vl1Ovfl6v-AZoG8Cg34N88siJEzO/view?usp=drivesdk" target="_blank" rel="noopener">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+							Download Résumé
+						</a>
+						<a class="btn btn--cyan" href="#contact">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+							Contact Me
+						</a>
+					</div>
+
+					<dl class="hero__meta rv" data-d="6">
+						<div><dt>Focus</dt><dd>MERN Stack</dd></div>
+						<div><dt>Based in</dt><dd>Jaipur, India</dd></div>
+						<div><dt>Core</dt><dd>React · Node · MongoDB</dd></div>
+					</dl>
+				</div>
+
+				<!-- Original anime-inspired developer silhouette. Drawn from scratch; not derived from any existing character or artwork. -->
+				<div class="hero__art rv rv--s" data-d="3">
+					<div class="char" data-depth="0.22">
+						<span class="char__halo" aria-hidden="true"></span>
+
+						<svg viewBox="0 0 400 440" role="img" aria-labelledby="charTitle charDesc">
+							<title id="charTitle">Illustration: a developer working at night on a rooftop</title>
+							<desc id="charDesc">An original stylised silhouette of a seated developer with a laptop, lit by moonlight behind and the glow of the screen in front.</desc>
+
+							<defs>
+								<linearGradient id="silh" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="0%"   stop-color="#161A33"/>
+									<stop offset="60%"  stop-color="#0C0F22"/>
+									<stop offset="100%" stop-color="#07090F"/>
+								</linearGradient>
+								<linearGradient id="screenFace" x1="0" y1="0" x2="1" y2="1">
+									<stop offset="0%"   stop-color="#9BFFF0"/>
+									<stop offset="100%" stop-color="#2FC4AE"/>
+								</linearGradient>
+								<radialGradient id="screenGlow" cx="50%" cy="50%" r="50%">
+									<stop offset="0%"   stop-color="#5EEAD4" stop-opacity=".62"/>
+									<stop offset="100%" stop-color="#5EEAD4" stop-opacity="0"/>
+								</radialGradient>
+								<radialGradient id="moonRim" cx="50%" cy="50%" r="50%">
+									<stop offset="0%"   stop-color="#FFB224" stop-opacity=".38"/>
+									<stop offset="100%" stop-color="#FFB224" stop-opacity="0"/>
+								</radialGradient>
+								<linearGradient id="ledgeTop" x1="0" y1="0" x2="1" y2="0">
+									<stop offset="0%"   stop-color="#FFB224" stop-opacity=".05"/>
+									<stop offset="45%"  stop-color="#FFB224" stop-opacity=".40"/>
+									<stop offset="100%" stop-color="#5EEAD4" stop-opacity=".10"/>
+								</linearGradient>
+								<linearGradient id="fadeX" x1="0" y1="0" x2="1" y2="0">
+									<stop offset="0%"  stop-color="#000"/>
+									<stop offset="18%" stop-color="#fff"/>
+									<stop offset="82%" stop-color="#fff"/>
+									<stop offset="100%" stop-color="#000"/>
+								</linearGradient>
+								<mask id="ledgeFade">
+									<rect x="0" y="330" width="400" height="60" fill="url(#fadeX)"/>
+								</mask>
+							</defs>
+
+							<!-- backlight bloom -->
+							<ellipse cx="176" cy="184" rx="150" ry="150" fill="url(#moonRim)"/>
+
+							<!-- screen light pool on the ledge -->
+							<ellipse cx="268" cy="330" rx="118" ry="30" fill="url(#screenGlow)" opacity=".5"/>
+
+							<!-- ===== figure (single silhouette path) ===== -->
+							<g>
+								<!-- torso, hips, legs -->
+								<path d="M196 190
+								         C 176 196, 168 222, 166 252
+								         C 164 282, 160 306, 158 324
+								         C 157 334, 162 340, 174 340
+								         L 258 340
+								         C 276 340, 286 334, 284 324
+								         C 282 314, 268 312, 254 314
+								         L 228 316
+								         C 236 300, 240 282, 240 268
+								         C 240 236, 232 206, 216 192
+								         Z"
+								      fill="url(#silh)"/>
+
+								<!-- folded shin + foot -->
+								<path d="M236 318 C 258 322, 276 330, 284 340 L 236 340 Z" fill="#090B16"/>
+
+								<!-- upper arm + forearm reaching to the laptop -->
+								<path d="M206 204
+								         C 190 216, 182 244, 186 266
+								         C 188 280, 200 288, 216 290
+								         L 262 296
+								         C 270 297, 274 292, 272 286
+								         C 270 280, 262 278, 254 279
+								         L 220 282
+								         C 212 268, 210 238, 218 214 Z"
+								      fill="#12152C"/>
+
+								<!-- neck -->
+								<path d="M192 170 L218 170 L220 196 L194 198 Z" fill="#0C0F22"/>
+
+								<!-- head -->
+								<path d="M172 142
+								         C 172 118, 190 104, 210 106
+								         C 230 108, 242 124, 242 142
+								         C 242 150, 240 156, 236 160
+								         L 240 168 L 232 170
+								         C 226 178, 216 182, 206 181
+								         C 186 179, 172 164, 172 142 Z"
+								      fill="url(#silh)"/>
+
+								<!-- spiked hair, original geometry -->
+								<path d="M168 148
+								         C 160 132, 164 112, 178 100
+								         L 172 86 L 190 96
+								         L 192 78 L 204 94
+								         L 216 76 L 220 96
+								         L 238 86 L 234 102
+								         C 246 112, 250 128, 244 144
+								         C 242 130, 234 120, 222 116
+								         C 206 110, 188 114, 176 126
+								         C 170 132, 168 140, 168 148 Z"
+								      fill="#0A0C1C"/>
+								<!-- trailing strands -->
+								<path d="M170 140 C 160 150, 156 164, 160 176 C 164 166, 168 156, 174 150 Z" fill="#0A0C1C"/>
+
+								<!-- hood collar -->
+								<path d="M184 186 C 196 198, 216 198, 226 186 C 230 198, 224 210, 206 212 C 190 212, 182 200, 184 186 Z"
+								      fill="#10132A"/>
+							</g>
+
+							<!-- ===== rim lights ===== -->
+							<!-- moonlight on the back edge (amber) -->
+							<g fill="none" stroke="#FFB224" stroke-linecap="round" opacity=".82">
+								<path d="M169 146 C 160 130, 165 111, 178 100" stroke-width="2.4"/>
+								<path d="M166 250 C 163 282, 159 308, 158 324" stroke-width="2.2" opacity=".6"/>
+								<path d="M187 262 C 184 244, 191 218, 205 205" stroke-width="1.8" opacity=".45"/>
+							</g>
+							<!-- screen light on the face and front edge (cyan) -->
+							<g fill="none" stroke="#5EEAD4" stroke-linecap="round" opacity=".9">
+								<path d="M241 140 C 242 152, 238 162, 232 170" stroke-width="2.6"/>
+								<path d="M227 186 C 236 200, 240 232, 240 268" stroke-width="2.2" opacity=".62"/>
+								<path d="M224 283 L 258 279" stroke-width="2" opacity=".5"/>
+							</g>
+							<!-- single catch-light for the eye, kept abstract -->
+							<circle cx="231" cy="146" r="2.6" fill="#9BFFF0" opacity=".95"/>
+
+							<!-- ===== laptop ===== -->
+							<g>
+								<!-- light cone from screen toward the face -->
+								<path d="M272 236 L 228 150 L 214 186 L 262 292 Z" fill="#5EEAD4" opacity=".07"/>
+								<!-- screen -->
+								<path d="M268 232 L 300 246 L 292 302 L 258 290 Z" fill="#0A0D1C" stroke="#5EEAD4" stroke-width="1.6" opacity=".95"/>
+								<path d="M266 238 L 296 250 L 289 296 L 259 285 Z" fill="url(#screenFace)" opacity=".2"/>
+								<!-- code lines on screen -->
+								<g stroke="#9BFFF0" stroke-width="1.6" stroke-linecap="round" opacity=".55">
+									<path d="M266 250 L 284 257"/><path d="M266 260 L 292 270"/>
+									<path d="M266 270 L 278 275"/><path d="M266 280 L 288 288"/>
+								</g>
+								<!-- base -->
+								<path d="M256 292 L 292 304 L 268 318 L 230 306 Z" fill="#141834"/>
+								<path d="M256 292 L 292 304" stroke="#5EEAD4" stroke-width="1.4" opacity=".55" fill="none"/>
+								<ellipse cx="276" cy="268" rx="62" ry="54" fill="url(#screenGlow)" opacity=".42"/>
+							</g>
+
+							<!-- ===== ledge ===== -->
+							<rect x="4" y="340" width="392" height="44" fill="#07090F" mask="url(#ledgeFade)"/>
+							<rect x="4" y="340" width="392" height="2"  fill="url(#ledgeTop)" mask="url(#ledgeFade)"/>
+
+							<!-- small drifting data motes -->
+							<g fill="#5EEAD4" opacity=".55">
+								<circle cx="318" cy="214" r="2.2"/><circle cx="344" cy="258" r="1.6"/><circle cx="106" cy="246" r="1.8"/>
+							</g>
+							<g fill="#FFB224" opacity=".5">
+								<circle cx="92" cy="186" r="2"/><circle cx="330" cy="166" r="1.6"/>
+							</g>
+						</svg>
+
+						<div class="glyphs" aria-hidden="true">
+							<span class="glyph glyph--a">&lt;/&gt; React.js</span>
+							<span class="glyph glyph--b">Node.js</span>
+							<span class="glyph glyph--c">MongoDB</span>
+							<span class="glyph glyph--d">{ REST }</span>
+						</div>
 					</div>
 				</div>
+
 			</div>
-			<div class="scrollDown">
-				<span></span>
-				<span></span>
-				<span></span>
+		</div>
+
+		<a class="scrollcue" href="#about" aria-label="Scroll to About">
+			<span class="scrollcue__rail" aria-hidden="true"></span>
+			Scroll
+		</a>
+	</section>
+
+	<!-- ===================== ABOUT ===================== -->
+	<section class="section" id="about">
+		<div class="wrap">
+			<div class="about__grid">
+
+				<div class="portrait rv rv--l">
+					<span class="portrait__corner portrait__corner--tl" aria-hidden="true"></span>
+					<span class="portrait__corner portrait__corner--br" aria-hidden="true"></span>
+					<div class="portrait__frame">
+						<img src="images/Keshavprashar.jpeg" width="800" height="1000" loading="lazy" decoding="async"
+						     alt="Keshav Prashar, Full Stack Developer based in Jaipur, India">
+						<div class="portrait__tag">
+							<span class="pulse" aria-hidden="true"></span>
+							Jaipur, Rajasthan · India
+						</div>
+					</div>
+				</div>
+
+				<div class="rv rv--r">
+					<p class="eyebrow">About me</p>
+					<h2 class="section-title">Building things that <span class="accent">actually ship</span></h2>
+
+					<p>
+						I'm a Computer Engineering graduate and a Full Stack Developer working across the MERN
+						stack. I focus on building responsive, functional web applications — designing REST APIs,
+						wiring up authentication, handling real-time features, and putting a clean, usable
+						interface on top of it all.
+					</p>
+					<p>
+						Most of my work sits between React.js on the front and Node.js, Express.js and MongoDB
+						on the back. I like the part where an idea stops being a diagram and becomes something
+						a person can open and use.
+					</p>
+
+					<dl class="factlist">
+						<div class="fact"><dt>Name</dt><dd>Keshav Prashar</dd></div>
+						<div class="fact"><dt>Role</dt><dd>Full Stack Developer</dd></div>
+						<div class="fact"><dt>Email</dt><dd><a href="mailto:keshavprashar597@gmail.com">keshavprashar597@gmail.com</a></dd></div>
+						<div class="fact"><dt>Phone</dt><dd><a href="tel:+917633853037">+91 7633853037</a></dd></div>
+						<div class="fact"><dt>Location</dt><dd>Jaipur, Rajasthan</dd></div>
+						<div class="fact"><dt>Country</dt><dd>India</dd></div>
+					</dl>
+
+					<div class="hero__cta">
+						<a class="btn btn--primary" href="https://drive.google.com/file/d/168f3Vl1Ovfl6v-AZoG8Cg34N88siJEzO/view?usp=drivesdk" target="_blank" rel="noopener">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+							Download Résumé
+						</a>
+						<a class="btn btn--ghost" href="https://github.com/keshavprash" target="_blank" rel="noopener">
+							<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.78 2.7 1.27 3.36.97.1-.75.4-1.27.73-1.56-2.56-.3-5.25-1.28-5.25-5.7 0-1.26.45-2.3 1.19-3.1-.12-.3-.52-1.48.11-3.09 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.6.23 2.79.12 3.09.74.8 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.07.78 2.16v3.2c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+							GitHub Profile
+						</a>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</section>
 
-	<section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
-		<div class="container">
-			<div class="row d-flex no-gutters">
-				<div class="col-md-6 col-lg-6 d-flex">
-					<div class="img-about img d-flex align-items-stretch">
-						<div class="overlay"></div>
-						<div class="img d-flex align-self-stretch align-items-center"
-							style="background-image:url(images/Keshavprashar.jpeg);">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-6 pl-md-5 py-5">
-					<div class="row justify-content-start pb-3">
-						<div class="col-md-12 heading-section ftco-animate">
-							<h2 class="mb-4">About Me</h2>
-							<p class="about-summary">I'm a Web Developer focused on building responsive, full-stack
-								applications with the MERN stack. I enjoy turning ideas into clean, functional
-								products — from designing REST APIs and real-time features to crafting polished,
-								user-friendly interfaces.</p>
-							<ul class="about-info mt-4 px-md-0 px-2">
-								<li class="d-flex"><span>Name:</span><span>Keshav Prashar</span></li>
-								<li class="d-flex"><span>Email:</span><span>keshavprashar597@gmail.com</span></li>
-								<li class="d-flex"><span>Phone:</span><span>+91 7633853037</span></li>
-								<li class="d-flex"><span>Country:</span><span>India</span></li>
-								<li class="d-flex"><span>City:</span><span>Jaipur, Rajasthan</span></li>
-							</ul>
-						</div>
-					</div>
-					<div class="counter-wrap ftco-animate d-flex mt-md-3">
-						<div class="text">
-							<p><a href="https://drive.google.com/file/d/168f3Vl1Ovfl6v-AZoG8Cg34N88siJEzO/view?usp=drivesdk"
-									class="btn btn-primary py-3 px-3" target="_blank" rel="noopener">Download CV</a></p>
-						</div>
-					</div>
-				</div>
+	<div class="wrap"><div class="ribbon" aria-hidden="true"></div></div>
+
+	<!-- ===================== RÉSUMÉ ===================== -->
+	<section class="section" id="resume">
+		<div class="wrap">
+			<div class="head head--center rv">
+				<p class="eyebrow">Background</p>
+				<h2 class="section-title">Experience &amp; <span class="accent">Credentials</span></h2>
+				<p class="section-lead">Where I've worked, what I studied, and the tools I reach for.</p>
 			</div>
-		</div>
-	</section>
 
-	<section class="ftco-section ftco-no-pb goto-here" id="resume-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<nav id="navi">
-						<ul>
-							<li><a href="#page-1">Experience</a></li>
-							<li><a href="#page-2">Education</a></li>
-							<li><a href="#page-3">Skills</a></li>
-							<li><a href="#page-4">Awards</a></li>
-						</ul>
-					</nav>
+			<div class="tabs rv">
+				<div class="tabs__nav" role="tablist" aria-label="Résumé sections">
+					<button class="tab" role="tab" id="tab-exp"  aria-controls="p-exp"  aria-selected="true"  tabindex="0" type="button">
+						<svg class="tab__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+						Experience
+					</button>
+					<button class="tab" role="tab" id="tab-edu"  aria-controls="p-edu"  aria-selected="false" tabindex="-1" type="button">
+						<svg class="tab__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>
+						Education
+					</button>
+					<button class="tab" role="tab" id="tab-skill" aria-controls="p-skill" aria-selected="false" tabindex="-1" type="button">
+						<svg class="tab__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+						Skills
+					</button>
+					<button class="tab" role="tab" id="tab-award" aria-controls="p-award" aria-selected="false" tabindex="-1" type="button">
+						<svg class="tab__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9L7 22l5-3 5 3-1.2-8.1"/></svg>
+						Awards
+					</button>
 				</div>
-				<div class="col-md-9">
 
-					<div id="page-1" class="page one">
-						<h2 class="heading">Experience</h2>
+				<div class="tabs__panels">
 
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-suitcase"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>Web Developer</h2>
-								<span class="position">Assist Tech Consultancy Pvt. Ltd.</span>
-								<p class="date">July 2025 – June 2026</p>
-								<ul>
+					<!-- EXPERIENCE -->
+					<div class="panel" role="tabpanel" id="p-exp" aria-labelledby="tab-exp" tabindex="0">
+						<ol class="tl">
+							<li class="tl__item tl__item--now">
+								<div class="tl__top">
+									<h3 class="tl__role">Full Stack Developer</h3>
+									<span class="tl__chip">Current</span>
+								</div>
+								<span class="tl__org">BIBHATSU</span>
+								<span class="tl__when">August 11, 2026 — Present</span>
+								<ul class="tl__points">
+									<li>Developing and maintaining web applications across the MERN stack — MongoDB, Express.js, React.js and Node.js.</li>
+									<li>Building REST APIs with Node.js and Express.js.</li>
+									<li>Implementing React.js interfaces backed by MongoDB.</li>
+								</ul>
+							</li>
+
+							<li class="tl__item">
+								<div class="tl__top">
+									<h3 class="tl__role">Web Developer</h3>
+								</div>
+								<span class="tl__org">Assist Tech Consultancy Pvt. Ltd.</span>
+								<span class="tl__when">July 2025 — June 2026</span>
+								<ul class="tl__points">
 									<li>Built responsive web applications.</li>
 									<li>Worked on MERN stack projects.</li>
 									<li>Developed REST APIs.</li>
 									<li>Integrated authentication.</li>
 									<li>Fixed production bugs.</li>
-									<li>Collaborated with development team.</li>
+									<li>Collaborated with the development team.</li>
 								</ul>
-							</div>
-						</div>
-
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-suitcase"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>Intern</h2>
-								<span class="position">Web Development</span>
-								<p class="date">7th Jul 2024 – 25th Aug 2024</p>
-								<ul>
-									<li>Basic learning of HTML, CSS, JavaScript, React.js, and GitHub.</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-suitcase"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>Intern</h2>
-								<span class="position">IOT Based</span>
-								<p class="date">7th Aug 2023 – 25th Aug 2023</p>
-								<ul>
-									<li>Took requirements from HR for development of Smart Door Bell.</li>
-									<li>Basic learning of KiCad and GitHub.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div id="page-2" class="page two">
-						<h2 class="heading">Education</h2>
-
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-graduation-cap"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>Poornima Institute of Engineering & Technology</h2>
-								<span class="position">Bachelor of Technology (Computer Engineering)</span>
-								<p>Jaipur, Rajasthan</p>
-								<span class="date">2022 – 2026</span>
-							</div>
-						</div>
-
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-book"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>M.D.S.S School, Kanhauli-Baniyapur</h2>
-								<span class="position">Intermediate</span>
-								<p><strong>Science (PCM)</strong></p>
-								<p>Chapra, India</p>
-								<span class="date">2020 – 2022</span>
-							</div>
-						</div>
-
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-book"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>GRPS Jalalpur</h2>
-								<span class="position">Matriculation</span>
-								<p><strong>Science</strong></p>
-								<p>Chapra, India</p>
-								<span class="date">2018 – 2019</span>
-							</div>
-						</div>
-					</div>
-
-					<div id="page-3" class="page three">
-						<h2 class="heading">Skills</h2>
-
-						<div class="skills-wrap ftco-animate">
-							<div class="skill-category">
-								<h3>Languages</h3>
-								<ul class="skill-tags">
-									<li>JavaScript</li>
-									<li>Python</li>
-									<li>Java</li>
-									<li>C++</li>
-								</ul>
-							</div>
-
-							<div class="skill-category">
-								<h3>Frontend</h3>
-								<ul class="skill-tags">
-									<li>HTML</li>
-									<li>CSS</li>
-									<li>Bootstrap</li>
-									<li>Tailwind</li>
-									<li>React</li>
-									<li>Redux Toolkit</li>
-								</ul>
-							</div>
-
-							<div class="skill-category">
-								<h3>Backend</h3>
-								<ul class="skill-tags">
-									<li>Node.js</li>
-									<li>Express.js</li>
-								</ul>
-							</div>
-
-							<div class="skill-category">
-								<h3>Database</h3>
-								<ul class="skill-tags">
-									<li>MongoDB</li>
-									<li>MySQL</li>
-								</ul>
-							</div>
-
-							<div class="skill-category">
-								<h3>Tools</h3>
-								<ul class="skill-tags">
-									<li>Git</li>
-									<li>GitHub</li>
-									<li>VS Code</li>
-									<li>Postman</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div id="page-4" class="page four">
-						<h2 class="heading">Awards</h2>
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-medal"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>Smart Door Bell</h2>
-								<span class="position"><strong>IOT</strong></span>
-								<span><strong> – Poornima Institute of Engg. & Tech</strong></span>
-								<p class="date">25th Aug 2023</p>
-								<p>Jaipur, Rajasthan</p>
-							</div>
-						</div>
-						<div class="resume-wrap d-flex ftco-animate">
-							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-trophy"></span>
-							</div>
-							<div class="text pl-3">
-								<h2>Winner – Smart Fire System</h2>
-								<span class="position"><strong>G20</strong></span>
-								<span><strong> – Poornima Institute of Engg. & Tech</strong></span>
-								<p class="date">18th May 2023</p>
-								<p>Jaipur, Rajasthan</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section" id="project-section">
-		<div class="container-fluid px-md-5">
-			<div class="row justify-content-center py-5 mt-5">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Projects</h2>
-					<p>A few things I've built recently</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 d-flex ftco-animate mb-4">
-					<div class="project-card">
-						<h3>AI Interview Preparation Platform</h3>
-						<ul class="project-stack">
-							<li>MERN</li>
-							<li>Redux Toolkit</li>
-							<li>JWT</li>
-							<li>Socket.IO</li>
-							<li>AI APIs</li>
-						</ul>
-						<ul class="project-points">
-							<li>Built a full-stack platform delivering resume ATS analysis, AI-driven mock interview sessions, and coding assessments secured with JWT-protected REST APIs.</li>
-							<li>Implemented real-time interview interaction using Socket.IO.</li>
-							<li>Integrated AI APIs for automated interview feedback and scoring.</li>
-							<li>Built an Admin Dashboard using Redux Toolkit.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate mb-4">
-					<div class="project-card">
-						<h3>Space Shooter — MERN Platform</h3>
-						<ul class="project-stack">
-							<li>React.js</li>
-							<li>Node.js</li>
-							<li>Express.js</li>
-							<li>MongoDB</li>
-							<li>Socket.IO</li>
-							<li>JWT</li>
-						</ul>
-						<ul class="project-points">
-							<li>Architected a scalable gaming platform.</li>
-							<li>JWT authentication.</li>
-							<li>Cloud save.</li>
-							<li>MongoDB leaderboards.</li>
-							<li>Real-time gameplay synchronization.</li>
-							<li>REST APIs.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate mb-4">
-					<div class="project-card">
-						<h3>Employee Task Management System</h3>
-						<ul class="project-stack">
-							<li>MERN</li>
-							<li>Redux Toolkit</li>
-							<li>REST APIs</li>
-						</ul>
-						<ul class="project-points">
-							<li>Developed role-based task management.</li>
-							<li>Admin Dashboard.</li>
-							<li>Employee Dashboard.</li>
-							<li>Task assignment.</li>
-							<li>Progress tracking.</li>
-							<li>Real-time notifications.</li>
-							<li>Responsive UI.</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-		<div class="container">
-			<div class="row justify-content-center mb-4 pb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Contact Me</h2>
-				</div>
-			</div>
-
-			<div class="row d-flex justify-content-center contact-info mb-5">
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate mb-4 mb-lg-0">
-					<div class="align-self-stretch box text-center p-4 shadow">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-phone2"></span>
-						</div>
-						<div>
-							<h3 class="mb-4">Phone</h3>
-							<p><a href="tel:+917633853037">+91 7633853037</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate mb-4 mb-lg-0">
-					<div class="align-self-stretch box text-center p-4 shadow">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-paper-plane"></span>
-						</div>
-						<div>
-							<h3 class="mb-4">Email</h3>
-							<p><a href="mailto:keshavprashar597@gmail.com">keshavprashar597@gmail.com</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate mb-4 mb-lg-0">
-					<div class="align-self-stretch box text-center p-4 shadow">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-linkedin-square"></span>
-						</div>
-						<div>
-							<h3 class="mb-4">LinkedIn</h3>
-							<p><a href="https://www.linkedin.com/in/keshav-prashar-9277b2256" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box text-center p-4 shadow">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-github"></span>
-						</div>
-						<div>
-							<h3 class="mb-4">GitHub</h3>
-							<p><a href="https://github.com/keshavprash" target="_blank" rel="noopener">View my repos</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row no-gutters block-9">
-				<div class="col-md-6 order-md-last d-flex">
-					<form method="POST" action="" class="bg-light p-4 p-md-5 contact-form">
-						<div class="form-group">
-							<input type="text" class="form-control" name="name" placeholder="Your Name" required>
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control" name="email" placeholder="Your Email" required>
-						</div>
-						<div class="form-group">
-							<textarea cols="30" rows="7" class="form-control" name="message" placeholder="Message"
-								required></textarea>
-						</div>
-						<div class="form-group">
-							<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-						</div>
-					</form>
-				</div>
-
-				<div class="col-md-6 d-flex">
-					<div class="img" style="background-image: url(images/about.jpeg);"></div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<footer class="ftco-footer ftco-section">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">About</h2>
-						<p>I like working with new tools and technologies</p>
-						<p class="mt-4"><u>Social Links</u></p>
-						<ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-							<li class="ftco-animate"><a href="https://github.com/keshavprash" target="_blank" rel="noopener"><span
-										class="icon-github"></span></a></li>
-							<li class="ftco-animate"><a
-									href="https://www.linkedin.com/in/keshav-prashar-9277b2256"
-									target="_blank" rel="noopener"><span class="icon-linkedin-square"></span></a></li>
-							<li class="ftco-animate"><a href="https://www.instagram.com/keshav_prashar_00/" target="_blank" rel="noopener"><span
-										class="icon-instagram"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">Links</h2>
-						<ul class="list-unstyled">
-							<li><a href="#home-section"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
-							<li><a href="#about-section"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
-							<li><a href="#project-section"><span class="icon-long-arrow-right mr-2"></span>Projects</a>
 							</li>
-							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a>
-							</li>
-						</ul>
-					</div>
-				</div>
 
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Have a Question?</h2>
-						<div class="block-23 mb-3">
-							<ul>
-								<li>
-									<a href="tel:+917633853037">
-										<span class="icon icon-phone"></span> +91 7633853037
-									</a>
-								</li>
-								<li>
-									<a href="mailto:keshavprashar597@gmail.com">
-										<span class="icon icon-envelope"></span> keshavprashar597@gmail.com
-									</a>
-								</li>
-							</ul>
+							<li class="tl__item">
+								<div class="tl__top">
+									<h3 class="tl__role">Intern — Web Development</h3>
+								</div>
+								<span class="tl__when">7 July 2024 — 25 August 2024</span>
+								<ul class="tl__points">
+									<li>Foundational work in HTML, CSS, JavaScript, React.js and GitHub.</li>
+								</ul>
+							</li>
+
+							<li class="tl__item">
+								<div class="tl__top">
+									<h3 class="tl__role">Intern — IoT</h3>
+								</div>
+								<span class="tl__when">7 August 2023 — 25 August 2023</span>
+								<ul class="tl__points">
+									<li>Gathered requirements from HR for the development of a Smart Door Bell.</li>
+									<li>Foundational work in KiCad and GitHub.</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
+
+					<!-- EDUCATION -->
+					<div class="panel" role="tabpanel" id="p-edu" aria-labelledby="tab-edu" tabindex="0" hidden>
+						<ol class="tl">
+							<li class="tl__item">
+								<div class="tl__top"><h3 class="tl__role">B.Tech — Computer Engineering</h3></div>
+								<span class="tl__org">Poornima Institute of Engineering &amp; Technology</span>
+								<span class="tl__when">2022 — 2026 · Jaipur, Rajasthan</span>
+							</li>
+							<li class="tl__item">
+								<div class="tl__top"><h3 class="tl__role">Intermediate — Science (PCM)</h3></div>
+								<span class="tl__org">M.D.S.S School, Kanhauli-Baniyapur</span>
+								<span class="tl__when">2020 — 2022 · Chapra, India</span>
+							</li>
+							<li class="tl__item">
+								<div class="tl__top"><h3 class="tl__role">Matriculation — Science</h3></div>
+								<span class="tl__org">GRPS Jalalpur</span>
+								<span class="tl__when">2018 — 2019 · Chapra, India</span>
+							</li>
+						</ol>
+					</div>
+
+					<!-- SKILLS -->
+					<div class="panel" role="tabpanel" id="p-skill" aria-labelledby="tab-skill" tabindex="0" hidden>
+						<div class="skills">
+							<div class="skillgroup">
+								<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Languages</h3>
+								<ul class="chips"><li class="chip">JavaScript</li><li class="chip">Python</li><li class="chip">Java</li><li class="chip">C++</li></ul>
+							</div>
+							<div class="skillgroup">
+								<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Frontend</h3>
+								<ul class="chips"><li class="chip">HTML5</li><li class="chip">CSS3</li><li class="chip">React.js</li><li class="chip">Redux Toolkit</li><li class="chip">Tailwind CSS</li><li class="chip">Bootstrap</li></ul>
+							</div>
+							<div class="skillgroup">
+								<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>Backend</h3>
+								<ul class="chips"><li class="chip">Node.js</li><li class="chip">Express.js</li><li class="chip">REST APIs</li><li class="chip">JWT Authentication</li></ul>
+							</div>
+							<div class="skillgroup">
+								<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>Database</h3>
+								<ul class="chips"><li class="chip">MongoDB</li><li class="chip">MySQL</li></ul>
+							</div>
+							<div class="skillgroup">
+								<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 1 5.4-5.4z"/></svg>Tools</h3>
+								<ul class="chips"><li class="chip">Git</li><li class="chip">GitHub</li><li class="chip">VS Code</li><li class="chip">Postman</li></ul>
+							</div>
 						</div>
 					</div>
+
+					<!-- AWARDS -->
+					<div class="panel" role="tabpanel" id="p-award" aria-labelledby="tab-award" tabindex="0" hidden>
+						<ol class="tl">
+							<li class="tl__item">
+								<div class="tl__top"><h3 class="tl__role">Winner — Smart Fire System</h3><span class="tl__chip">G20</span></div>
+								<span class="tl__org">Poornima Institute of Engineering &amp; Technology</span>
+								<span class="tl__when">18 May 2023 · Jaipur, Rajasthan</span>
+							</li>
+							<li class="tl__item">
+								<div class="tl__top"><h3 class="tl__role">Smart Door Bell</h3><span class="tl__chip">IoT</span></div>
+								<span class="tl__org">Poornima Institute of Engineering &amp; Technology</span>
+								<span class="tl__when">25 August 2023 · Jaipur, Rajasthan</span>
+							</li>
+						</ol>
+					</div>
+
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<i class="icon-heart color-danger" aria-hidden="true"></i>
-					<i class="icon-heart color-danger" aria-hidden="true"></i>
-					<p class="mt-5">Copyright &copy; <span id="copyright-year"></span></p>
+		</div>
+	</section>
+
+	<div class="wrap"><div class="ribbon" aria-hidden="true"></div></div>
+
+	<!-- ===================== PROJECTS ===================== -->
+	<!--
+	  ADDING LINKS LATER
+	  ------------------
+	  No repository or demo URLs have been verified yet, so no link buttons are rendered.
+	  To add them, paste this block just before the closing </div> of a .pcard,
+	  replacing the href values with the real, verified URLs:
+
+	    <div class="pcard__links">
+	      <a class="btn btn--primary" href="REAL_LIVE_URL" target="_blank" rel="noopener">Live Demo</a>
+	      <a class="btn btn--ghost"   href="REAL_REPO_URL" target="_blank" rel="noopener">Source Code</a>
+	    </div>
+
+	  Styling for .pcard__links is already in css/site.css. Nothing else needs changing.
+	-->
+	<section class="section" id="work">
+		<div class="wrap">
+			<div class="head head--center rv">
+				<p class="eyebrow">Selected work</p>
+				<h2 class="section-title">Projects I've <span class="accent">built</span></h2>
+				<p class="section-lead">Full-stack applications built with React.js, Node.js, Express.js and MongoDB.</p>
+			</div>
+
+			<div class="projects">
+
+				<article class="pcard rv" data-d="1">
+					<span class="pcard__no">01</span>
+					<h3 class="pcard__title">AI Interview Preparation Platform</h3>
+					<p class="pcard__problem">Candidates practise for interviews with no structured feedback on their résumé or their answers.</p>
+					<ul class="pcard__feat">
+						<li>Full-stack platform delivering résumé ATS analysis, AI-driven mock interview sessions and coding assessments, secured with JWT-protected REST APIs.</li>
+						<li>Real-time interview interaction implemented with Socket.IO.</li>
+						<li>AI APIs integrated for automated interview feedback and scoring.</li>
+						<li>Admin dashboard built with Redux Toolkit.</li>
+					</ul>
+					<ul class="pcard__stack">
+						<li>MERN</li><li>Redux Toolkit</li><li>JWT</li><li>Socket.IO</li><li>AI APIs</li>
+					</ul>
+				</article>
+
+				<article class="pcard rv" data-d="2">
+					<span class="pcard__no">02</span>
+					<h3 class="pcard__title">Space Shooter — MERN Platform</h3>
+					<p class="pcard__problem">A browser game needs accounts, saved progress and a shared leaderboard to be more than a single session.</p>
+					<ul class="pcard__feat">
+						<li>Scalable gaming platform architected on the MERN stack.</li>
+						<li>JWT authentication with cloud save for player progress.</li>
+						<li>MongoDB-backed leaderboards.</li>
+						<li>Real-time gameplay synchronisation over Socket.IO.</li>
+						<li>REST APIs powering the client.</li>
+					</ul>
+					<ul class="pcard__stack">
+						<li>React.js</li><li>Node.js</li><li>Express.js</li><li>MongoDB</li><li>Socket.IO</li><li>JWT</li>
+					</ul>
+				</article>
+
+				<article class="pcard rv" data-d="3">
+					<span class="pcard__no">03</span>
+					<h3 class="pcard__title">Employee Task Management System</h3>
+					<p class="pcard__problem">Teams lose track of who owns which task and where each one stands.</p>
+					<ul class="pcard__feat">
+						<li>Role-based task management with separate admin and employee dashboards.</li>
+						<li>Task assignment and progress tracking.</li>
+						<li>Real-time notifications.</li>
+						<li>Responsive UI across devices.</li>
+					</ul>
+					<ul class="pcard__stack">
+						<li>MERN</li><li>Redux Toolkit</li><li>REST APIs</li>
+					</ul>
+				</article>
+
+			</div>
+
+			<p class="projects__note rv">
+				Repository and live demo links are being verified and will be added to each project here.
+				In the meantime you can browse the code on
+				<a href="https://github.com/keshavprash" target="_blank" rel="noopener">github.com/keshavprash</a>.
+			</p>
+		</div>
+	</section>
+
+	<div class="wrap"><div class="ribbon" aria-hidden="true"></div></div>
+
+	<!-- ===================== CONTACT ===================== -->
+	<section class="section" id="contact">
+		<div class="wrap">
+			<div class="head head--center rv">
+				<p class="eyebrow">Get in touch</p>
+				<h2 class="section-title">Let's build <span class="accent">something</span></h2>
+				<p class="section-lead">Open to full-stack and React.js roles. The fastest way to reach me is email.</p>
+			</div>
+
+			<div class="contact__card rv rv--s">
+				<p>Write to me directly — I read every message.</p>
+
+				<div class="mailbox">
+					<span class="mailbox__addr" id="emailAddr">keshavprashar597@gmail.com</span>
+					<button class="mailbox__copy" id="copyEmail" type="button"
+					        data-email="keshavprashar597@gmail.com" aria-describedby="copyStatus">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+						<span class="mailbox__copy-label">Copy email</span>
+					</button>
 				</div>
+
+				<span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+
+				<div class="contact__actions">
+					<a class="btn btn--primary" href="mailto:keshavprashar597@gmail.com?subject=Opportunity%20for%20Keshav%20Prashar">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+						Write to Keshav
+					</a>
+					<a class="btn btn--ghost" href="tel:+917633853037">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+						+91 7633853037
+					</a>
+				</div>
+
+				<div class="social">
+					<a class="social__link" href="https://github.com/keshavprash" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.78 2.7 1.27 3.36.97.1-.75.4-1.27.73-1.56-2.56-.3-5.25-1.28-5.25-5.7 0-1.26.45-2.3 1.19-3.1-.12-.3-.52-1.48.11-3.09 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.6.23 2.79.12 3.09.74.8 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.07.78 2.16v3.2c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+						GitHub
+					</a>
+					<a class="social__link" href="https://www.linkedin.com/in/keshav-prashar-9277b2256" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+						LinkedIn
+					</a>
+					<a class="social__link" href="https://www.instagram.com/keshav_prashar_00/" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+						Instagram
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	</main>
+
+	<!-- ===================== FOOTER ===================== -->
+	<footer class="footer">
+		<div class="wrap">
+			<div class="footer__grid">
+				<a class="footer__brand" href="#home">Keshav Prashar</a>
+				<nav class="footer__nav" aria-label="Footer">
+					<a href="#home">Home</a>
+					<a href="#about">About</a>
+					<a href="#resume">Résumé</a>
+					<a href="#work">Projects</a>
+					<a href="#contact">Contact</a>
+				</nav>
+			</div>
+			<div class="footer__base">
+				<p>&copy; <span id="year">2026</span> Keshav Prashar. Built with plain HTML, CSS and JavaScript.</p>
+				<p>Full Stack Developer · React.js · MERN Stack · Jaipur, India</p>
 			</div>
 		</div>
 	</footer>
 
-	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-				stroke="#F96D00" />
-		</svg></div>
+	<button class="totop" id="totop" type="button" aria-label="Back to top">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+	</button>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/scrollax.min.js"></script>
-	<script src="js/particles.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/main.js"></script>
-	<script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
-
+	<script src="js/site.js" defer></script>
 </body>
 
 </html>
