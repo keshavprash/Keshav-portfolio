@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMaxYMin slice">
+  <!-- Original foreground silhouette: utility pole and sagging cables. -->
+  <g fill="none" stroke="#03040c" stroke-linecap="round">
+    <path stroke-width="3" d="M1560 150 C1330 262 1060 268 -20 118"/>
+    <path stroke-width="2.4" d="M1560 170 C1300 300 980 300 -20 170"/>
+    <path stroke-width="2" d="M1560 196 C1340 312 1130 330 620 262"/>
+  </g>
+  <g fill="#03040c">
+    <rect x="1548" y="0" width="22" height="900"/>
+    <rect x="1472" y="140" width="128" height="10" rx="2"/>
+    <rect x="1494" y="166" width="106" height="9" rx="2"/>
+    <rect x="1508" y="200" width="42" height="74" rx="5"/>
+    <rect x="1462" y="130" width="9" height="20" rx="2"/>
+    <rect x="1490" y="156" width="9" height="20" rx="2"/>
+  </g>
+  <rect x="1516" y="220" width="5" height="5" rx="2.5" fill="#4feaff"/>
+</svg>

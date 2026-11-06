@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1160" width="760" height="1160">
+  <!-- Original character drawn for this site by hand, as code. Not traced from, or based on, any existing character, franchise or artwork.
+       Cel-shaded night lighting: cyan key from the hologram (left), violet rim from the city (right), amber accents. -->
+  <defs>
+    <filter id="rim" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feOffset in="SourceAlpha" dx="3.2" dy=".8" result="oL"/>
+      <feComposite in="SourceAlpha" in2="oL" operator="out" result="edgeL"/>
+      <feFlood flood-color="#7df3ff"/>
+      <feComposite in2="edgeL" operator="in" result="rimL"/>
+      <feOffset in="SourceAlpha" dx="-2.6" dy="-.6" result="oR"/>
+      <feComposite in="SourceAlpha" in2="oR" operator="out" result="edgeR"/>
+      <feFlood flood-color="#9d7bff" flood-opacity=".9"/>
+      <feComposite in2="edgeR" operator="in" result="rimR"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="rimR"/><feMergeNode in="rimL"/></feMerge>
+    </filter>
+    <filter id="rimThin" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feOffset in="SourceAlpha" dx="1.8" dy=".5" result="oL"/>
+      <feComposite in="SourceAlpha" in2="oL" operator="out" result="edgeL"/>
+      <feFlood flood-color="#8ef5ff" flood-opacity=".95"/>
+      <feComposite in2="edgeL" operator="in" result="rimL"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="rimL"/></feMerge>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="jacket" x1="0" y1="0" x2="1" y2=".25">
+      <stop offset="0" stop-color="#26346f"/><stop offset=".4" stop-color="#1a2352"/><stop offset="1" stop-color="#11173a"/>
+    </linearGradient>
+    <linearGradient id="sleeve" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f4288"/><stop offset="1" stop-color="#172049"/>
+    </linearGradient>
+    <linearGradient id="trouser" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a2149"/><stop offset=".55" stop-color="#10152f"/><stop offset="1" stop-color="#0b0e22"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e4f2f4"/><stop offset=".42" stop-color="#c3bad2"/><stop offset="1" stop-color="#7a729f"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2=".7">
+      <stop offset="0" stop-color="#1c2460"/><stop offset=".5" stop-color="#121640"/><stop offset="1" stop-color="#0c0e2c"/>
+    </linearGradient>
+    <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#20295e"/><stop offset="1" stop-color="#121739"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wind layer: jacket tail and hanging straps. Kept as its own group so WebGL can animate it separately. -->
+  <g id="wind" filter="url(#rim)">
+    <path fill="#0d1230" d="M500 556 C526 604 566 640 628 664 C656 676 686 680 716 678 C694 694 664 702 632 702 C644 716 660 728 682 736 C640 744 596 736 556 712 C528 694 504 676 486 650 Z"/>
+    <path fill="#1d2759" d="M512 590 C540 632 582 664 640 682 C600 688 556 668 526 636 Z"/>
+    <path fill="none" stroke="#7df3ff" stroke-opacity=".7" stroke-width="2.4" d="M522 640 C562 682 612 704 670 708"/>
+    <path fill="none" stroke="#ffb648" stroke-width="4.5" stroke-linecap="round" d="M552 650 C580 684 606 716 622 758"/>
+    <path fill="#ffb648" d="M614 754 L632 750 L640 786 L622 790 Z"/>
+  </g>
+
+  <g id="figure">
+    <!-- Rear leg (screen right) -->
+    <g filter="url(#rim)">
+      <path fill="url(#trouser)" d="M432 640 L556 628 C562 700 560 764 548 838 C540 900 526 968 518 1034 L456 1036 C450 966 442 900 438 838 C436 770 430 704 432 640 Z"/>
+      <path fill="#0a0d20" d="M520 640 L556 628 C562 700 560 764 548 838 C540 900 526 968 518 1034 L494 1035 C504 960 516 890 524 830 C530 760 528 700 520 640 Z"/>
+      <path fill="none" stroke="#27316c" stroke-width="3" stroke-linecap="round" d="M452 846 C474 858 500 858 526 846 M456 870 C476 880 496 880 518 870"/>
+      <path fill="#242e68" d="M458 720 L512 716 L514 792 L460 796 Z"/>
+      <path fill="#10152f" d="M466 728 L504 725 L505 742 L467 745 Z"/>
+      <path fill="#ffb648" d="M474 760 L498 758 L498 770 L474 772 Z"/>
+    </g>
+    <!-- Rear shoe -->
+    <g filter="url(#rimThin)">
+      <path fill="#14193e" d="M442 1018 C438 1038 424 1056 406 1066 C396 1072 392 1086 404 1090 L526 1092 C538 1092 540 1080 538 1070 L530 1020 Z"/>
+      <path fill="#2b3780" d="M430 1048 C452 1040 492 1040 526 1048 L528 1062 C492 1056 446 1058 416 1066 Z"/>
+      <path fill="#ffb648" d="M478 1022 L520 1022 L522 1034 L478 1036 Z"/>
+      <path fill="#7df3ff" d="M398 1086 L540 1084 C542 1092 538 1098 528 1098 L410 1098 C400 1098 396 1092 398 1086 Z"/>
+    </g>
+
+    <!-- Front leg (screen left) -->
+    <g filter="url(#rim)">
+      <path fill="url(#trouser)" d="M322 640 L452 640 C454 712 446 772 428 842 C412 906 390 972 376 1034 L314 1032 C314 966 314 904 316 840 C320 772 320 704 322 640 Z"/>
+      <path fill="#0d1129" d="M414 642 L452 640 C454 712 446 772 428 842 C412 906 390 972 376 1034 L350 1033 C364 968 384 906 398 842 C412 772 418 704 414 642 Z"/>
+      <path fill="#2a3679" d="M326 700 C322 760 322 810 320 842 C318 900 316 966 316 1030 L332 1031 C334 966 336 902 340 842 C344 800 344 748 344 702 Z"/>
+      <path fill="none" stroke="#2c3778" stroke-width="3" stroke-linecap="round" d="M332 852 C354 866 382 866 410 850 M334 876 C354 888 378 888 402 874"/>
+      <path fill="#28336f" d="M340 724 L396 722 L398 800 L342 802 Z"/>
+      <path fill="#11162f" d="M348 732 L390 730 L391 748 L349 750 Z"/>
+      <path fill="none" stroke="#7df3ff" stroke-opacity=".8" stroke-width="2.4" d="M340 790 L398 788"/>
+    </g>
+    <!-- Front shoe -->
+    <g filter="url(#rimThin)">
+      <path fill="#171d48" d="M306 1016 C300 1036 282 1054 256 1064 C240 1070 236 1086 250 1090 L384 1092 C396 1092 398 1080 396 1070 L390 1018 Z"/>
+      <path fill="#33428f" d="M278 1046 C308 1036 352 1036 388 1046 L390 1060 C352 1054 300 1056 262 1066 Z"/>
+      <path fill="#ffb648" d="M336 1020 L382 1020 L384 1032 L336 1034 Z"/>
+      <path fill="#7df3ff" d="M244 1086 L398 1084 C400 1092 396 1098 386 1098 L256 1098 C246 1098 242 1092 244 1086 Z"/>
+    </g>
+
+    <!-- Relaxed arm (screen right), behind the torso edge, hand in pocket -->
+    <g filter="url(#rim)">
+      <path fill="#141a40" d="M496 276 C534 288 556 330 566 392 C574 444 572 500 556 560 C550 584 540 604 526 618 L470 590 C486 548 492 500 490 444 C488 390 484 330 496 276 Z"/>
+      <path fill="#0c1029" d="M540 330 C556 380 562 450 550 540 C544 570 536 594 526 612 L502 600 C522 560 534 500 536 440 C537 400 536 362 540 330 Z"/>
+      <path fill="none" stroke="#2b3676" stroke-width="3" stroke-linecap="round" d="M500 440 C516 448 536 448 556 438 M498 462 C514 470 534 470 552 460"/>
+    </g>
+
+    <!-- Torso: an oversized technical parka seen from behind -->
+    <g filter="url(#rim)">
+      <path fill="url(#jacket)" d="M336 280 C372 262 452 258 500 276 C522 340 532 420 530 500 C530 560 534 610 542 664 C490 690 372 696 306 668 C310 600 316 540 318 480 C320 400 324 340 336 280 Z"/>
+      <!-- large shadow plane on the far side -->
+      <path fill="#0f1433" d="M452 268 C472 268 488 272 500 276 C522 340 532 420 530 500 C530 560 534 610 542 664 C520 674 490 682 456 686 C470 620 476 540 474 460 C472 390 464 320 452 268 Z"/>
+      <!-- lit plane from the hologram -->
+      <path fill="#33458f" d="M336 280 C346 276 356 272 366 270 C354 340 348 410 346 480 C344 560 340 620 338 680 C326 676 316 672 306 668 C310 600 316 540 318 480 C320 400 324 340 336 280 Z"/>
+      <!-- centre seam, yoke, waist cord, hem -->
+      <path fill="none" stroke="#0b0f28" stroke-width="4" stroke-linecap="round" d="M414 300 C410 400 410 540 416 690"/>
+      <path fill="none" stroke="#2f3b80" stroke-width="3" stroke-linecap="round" d="M330 356 C380 376 470 376 520 352"/>
+      <path fill="#0c1029" d="M318 520 C376 540 470 540 530 516 L531 544 C470 568 374 568 317 548 Z"/>
+      <path fill="#2b3676" d="M318 520 C376 540 470 540 530 516 L530 522 C470 546 376 546 318 526 Z"/>
+      <path fill="none" stroke="#7df3ff" stroke-opacity=".6" stroke-width="2.6" d="M310 656 C372 682 490 678 540 652"/>
+      <!-- pocket -->
+      <path fill="#121739" d="M470 580 L534 572 L540 650 L476 658 Z"/>
+      <path fill="none" stroke="#3a4890" stroke-width="2.4" d="M470 580 L534 572"/>
+      <!-- utility tag -->
+      <path fill="#ffb648" d="M356 584 L404 582 L404 600 L356 602 Z"/>
+      <path fill="#14193e" d="M362 588 L398 587 L398 591 L362 592 Z M362 595 L386 594 L386 597 L362 598 Z"/>
+      <!-- original back emblem: angle brackets and a slash -->
+      <g fill="none" stroke="#7df3ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+        <path d="M392 412 L364 442 L392 472"/>
+        <path d="M444 412 L472 442 L444 472"/>
+        <path d="M428 402 L408 482"/>
+      </g>
+    </g>
+
+    <!-- Raised arm (screen left) reaching for a holographic panel -->
+    <g filter="url(#rim)">
+      <path fill="url(#sleeve)" d="M372 276 C338 276 314 292 296 318 C268 352 244 382 222 396 C206 370 186 332 166 292 L112 318 C130 372 158 428 188 464 C206 484 232 486 254 472 C296 444 336 408 366 372 C386 346 392 306 372 276 Z"/>
+      <path fill="#121739" d="M366 372 C336 408 296 444 254 472 C232 486 206 484 188 464 C176 450 164 432 154 414 C176 436 204 444 232 430 C274 408 316 372 350 332 C364 316 374 300 378 286 C390 312 386 346 366 372 Z"/>
+      <path fill="none" stroke="#7df3ff" stroke-width="4" stroke-linecap="round" filter="url(#glow)" d="M136 340 C150 372 166 402 184 426"/>
+      <!-- cuff -->
+      <path fill="#ffb648" d="M108 306 L170 276 L178 294 L116 324 Z"/>
+      <path fill="#0f1433" d="M116 324 L178 294 L182 304 L120 334 Z"/>
+    </g>
+    <!-- Hand: index finger extended toward the light, others relaxed -->
+    <g filter="url(#rimThin)">
+      <path fill="url(#skin)" d="M112 316 C102 300 96 286 98 270 C99 260 108 258 112 266 L116 278 L108 226 C106 214 120 210 124 222 L136 268 L146 262 C154 258 160 266 156 274 L152 280 C160 278 166 284 162 292 L170 296 Z"/>
+      <path fill="#7a729f" d="M136 268 L152 280 L162 292 L170 296 L114 318 L128 288 Z"/>
+    </g>
+
+    <!-- Neck -->
+    <path fill="#a49dc0" d="M378 192 L442 196 L446 262 C424 280 392 282 372 266 Z"/>
+    <path fill="#67618f" d="M404 196 L442 196 L446 262 C436 270 424 274 410 276 C414 246 412 222 404 196 Z"/>
+
+    <!-- Hood gathered behind the neck -->
+    <g filter="url(#rim)">
+      <path fill="url(#hood)" d="M344 276 C340 240 368 214 412 212 C462 210 502 232 510 270 C516 296 500 322 466 334 C430 346 384 342 360 322 C350 312 346 296 344 276 Z"/>
+      <path fill="#0b0f28" d="M372 272 C384 246 412 236 438 238 C462 240 480 254 486 274 C460 294 402 296 372 272 Z"/>
+      <path fill="none" stroke="#34428c" stroke-width="3" stroke-linecap="round" d="M358 296 C390 320 460 322 500 288"/>
+      <path fill="none" stroke="#ffb648" stroke-width="4" stroke-linecap="round" d="M372 322 C366 346 366 372 372 396"/>
+      <path fill="#ffb648" d="M366 394 L380 392 L382 410 L368 412 Z"/>
+    </g>
+
+    <!-- Back hair: wind-swept tufts streaming to the right -->
+    <g filter="url(#rim)">
+      <path fill="url(#hair)" d="M352 112 C354 74 388 46 428 44 C436 30 450 20 470 14 C463 28 462 40 466 50 C484 40 504 36 526 40 C512 50 506 60 504 72 C526 68 548 72 568 88 C548 92 534 100 526 112 C548 114 570 124 586 144 C562 142 544 148 532 158 C550 166 564 180 570 200 C550 190 532 190 516 196 C522 210 524 228 516 246 C506 232 492 224 478 222 C476 238 468 252 452 264 C452 246 446 232 438 222 L416 204 Z"/>
+      <path fill="#262f78" d="M398 62 C426 50 464 52 494 74 C472 70 452 72 436 80 C460 84 486 98 502 122 C472 104 438 98 410 104 C400 90 396 76 398 62 Z"/>
+      <path fill="#1c2460" d="M456 138 C484 138 512 150 532 172 C506 166 480 166 460 174 C474 178 488 188 496 202 C470 190 444 188 428 192 C432 172 442 150 456 138 Z"/>
+      <path fill="#9d7bff" opacity=".85" d="M506 126 C520 132 532 142 540 156 C526 148 514 142 500 140 Z"/>
+    </g>
+
+    <!-- Face in profile, looking toward the hologram -->
+    <g filter="url(#rimThin)">
+      <path fill="url(#skin)" d="M354 96 C346 110 341 122 340 132 C339 142 334 152 326 161 C325 164 328 166 333 167 L337 171 C335 174 335 176 337 178 C335 181 335 184 337 186 C337 196 343 206 353 210 C374 216 398 206 418 188 L430 110 Z"/>
+      <path fill="#8a83b2" d="M384 158 C388 180 398 192 412 194 C394 208 372 214 353 210 C347 208 343 204 340 199 C360 198 376 182 384 158 Z"/>
+      <path fill="#0c0e2c" d="M345 137 C353 130 365 130 374 137 L371 142 C362 136 354 136 347 142 Z"/>
+      <path fill="#1b2d78" d="M351 140 C358 137 365 138 369 142 L366 153 C360 155 354 153 351 148 Z"/>
+      <path fill="#7df3ff" d="M353 141 L359 140 L356 147 Z"/>
+      <path fill="none" stroke="#0c0e2c" stroke-width="1.6" stroke-linecap="round" d="M351 153 C356 156 362 156 367 154"/>
+      <path fill="#14174a" d="M344 122 C354 116 366 116 378 121 L376 125 C366 122 354 122 346 127 Z"/>
+      <path fill="#d99ab8" opacity=".42" d="M346 170 C354 166 366 168 372 174 C364 182 350 182 346 170 Z"/>
+      <path fill="none" stroke="#3b2f5e" stroke-width="1.8" stroke-linecap="round" d="M337 180 C342 180 346 179 350 177"/>
+    </g>
+
+    <!-- Fringe and side lock, drawn over the face -->
+    <g filter="url(#rimThin)">
+      <path fill="url(#hair)" d="M346 118 C350 90 372 66 410 60 C438 56 462 64 476 82 C450 80 432 88 424 102 C428 132 426 170 412 208 C402 188 394 164 392 138 C386 142 378 134 374 118 C368 126 358 128 354 118 C352 122 349 122 346 118 Z"/>
+      <path fill="#2c3686" d="M372 84 C392 72 418 70 440 76 C420 80 404 88 394 102 C386 100 378 94 372 84 Z"/>
+      <path fill="#5f77ec" d="M384 78 C402 70 424 70 442 74 C424 76 406 80 394 90 Z"/>
+      <path fill="#a6b6ff" d="M398 74 C410 71 424 71 436 74 C424 75 412 77 402 80 Z"/>
+      <path fill="#1c2460" d="M406 120 C410 142 410 166 408 186 C402 168 398 146 398 126 Z"/>
+    </g>
+
+    <!-- Headphones -->
+    <g filter="url(#rimThin)">
+      <path fill="none" stroke="#080a1e" stroke-width="14" stroke-linecap="round" d="M412 50 C446 78 456 120 448 160"/>
+      <path fill="none" stroke="#3a4890" stroke-width="4.5" stroke-linecap="round" d="M417 56 C448 82 458 120 452 156"/>
+      <ellipse cx="446" cy="176" rx="30" ry="38" fill="#0b0e28" transform="rotate(-10 446 176)"/>
+      <ellipse cx="448" cy="176" rx="20" ry="27" fill="#232c6c" transform="rotate(-10 448 176)"/>
+      <ellipse cx="448" cy="176" rx="9" ry="14" fill="#ffb648" filter="url(#glow)" transform="rotate(-10 448 176)"/>
+    </g>
+  </g>
+</svg>
