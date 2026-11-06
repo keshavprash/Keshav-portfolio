@@ -202,7 +202,7 @@ export function buildRooftop(ctx) {
     });
   });
 
-  // water tank on stilts: the silhouette of every Japanese rooftop
+  // water tank on stilts
   const tank = new THREE.Group();
   tank.position.set(-7.6, 0, -5.4);
   group.add(tank);

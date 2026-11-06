@@ -31,13 +31,13 @@ Plain HTML, CSS and JavaScript modules, with no framework and no build step. Thr
 | Dedicated GPU | Full 3D: live reflections, MSAA, bloom |
 | Integrated GPU, capable phone | 3D at reduced resolution and effects |
 | Weak phone | Simple 3D: no post-processing or reflections |
-| Reduced motion (includes Windows "Adjust for best performance") | The real 3D scene held still: no loop, no camera travel, cuts between shots. A **Play scene** button opts in to motion |
+| Reduced motion (includes Windows "Adjust for best performance") | The real 3D scene held still: no loop, no camera travel, cuts between shots |
 | No WebGL2, software rendering, data saver | The 2D layered scene. Three.js is never downloaded |
 | No JavaScript | The 2D scene and all content |
 
 If a device really cannot hold its frame rate, the scene steps its own quality down, and finally hands over to the 2D scene. A low frame rate alone does not trigger this, because browsers throttle a window covered by another one: the real GPU cost of a frame is measured first. Rendering stops while the tab is hidden and slows while reading below the hero.
 
-Add `?quality=high`, `medium`, `low` or `2d` to the URL to view a specific path. Add `&lockquality` to stop the scene adjusting itself.
+The scene starts by itself with no button to press. Add `?quality=high`, `medium`, `low` or `2d` to the URL to view a specific path, `&lockquality` to stop the scene adjusting itself, or `?motion=on` to preview the moving scene on a device with reduced motion turned on.
 
 ## Editing content
 

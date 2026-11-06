@@ -1,77 +1,45 @@
-/* Neon signage. Katakana are defined here as stroke polylines rather than font glyphs, so they render
-   identically on every device, including those without Japanese fonts installed. */
+/* Neon signage, drawn to canvas textures: vertical street signs and wide billboards. */
 import * as THREE from '../../vendor/three.custom.min.js';
 
-/* Each glyph is a list of polylines in a 0..1 cell. */
-const KANA = {
-  'コ': [[[.15,.2],[.85,.2],[.85,.8],[.15,.8]]],
-  'ー': [[[.5,.12],[.5,.88]]],
-  'ド': [[[.38,.1],[.38,.92]], [[.38,.42],[.78,.62]], [[.68,.1],[.76,.24]], [[.84,.06],[.92,.2]]],
-  'ネ': [[[.5,.06],[.5,.18]], [[.2,.22],[.76,.22],[.28,.62]], [[.5,.5],[.5,.94]], [[.52,.52],[.82,.72]]],
-  'オ': [[[.12,.34],[.88,.34]], [[.62,.08],[.62,.92],[.5,.86]], [[.58,.36],[.14,.8]]],
-  'ン': [[[.2,.2],[.4,.34]], [[.16,.82],[.5,.72],[.84,.22]]],
-  'ヨ': [[[.18,.16],[.82,.16],[.82,.86],[.18,.86]], [[.22,.5],[.82,.5]]],
-  'ル': [[[.34,.14],[.34,.5],[.12,.86]], [[.6,.1],[.6,.8],[.9,.52]]],
-  'フ': [[[.14,.2],[.84,.2],[.76,.52],[.36,.9]]],
-  'ス': [[[.18,.18],[.78,.18],[.6,.52],[.14,.88]], [[.52,.6],[.88,.88]]],
-  'タ': [[[.38,.08],[.16,.46]], [[.36,.22],[.82,.22],[.64,.62],[.2,.92]], [[.32,.48],[.72,.64]]],
-  'ッ': [[[.2,.4],[.3,.58]], [[.46,.34],[.54,.54]], [[.78,.34],[.66,.66],[.4,.88]]],
-  'ク': [[[.4,.08],[.14,.46]], [[.38,.22],[.84,.22],[.7,.6],[.3,.92]]],
-  'カ': [[[.12,.3],[.84,.3],[.8,.86],[.62,.8]], [[.46,.08],[.42,.5],[.14,.9]]],
-  'イ': [[[.8,.1],[.46,.46],[.12,.62]], [[.56,.4],[.56,.94]]],
-  'ハ': [[[.36,.22],[.12,.78]], [[.62,.2],[.9,.78]]],
-  'ツ': [[[.16,.22],[.28,.46]], [[.44,.16],[.54,.42]], [[.84,.16],[.7,.56],[.36,.9]]],
-  'ラ': [[[.24,.12],[.76,.12]], [[.14,.34],[.84,.34],[.72,.64],[.34,.92]]],
-  'メ': [[[.76,.12],[.66,.52],[.2,.9]], [[.26,.34],[.82,.82]]],
-};
-
-function strokeGlyph(g, char, x, y, size) {
-  const strokes = KANA[char];
-  if (!strokes) return;
-  strokes.forEach((line) => {
-    g.beginPath();
-    line.forEach(([px, py], i) => {
-      const X = x + px * size, Y = y + py * size;
-      if (i) g.lineTo(X, Y); else g.moveTo(X, Y);
-    });
-    g.stroke();
-  });
-}
-
 function neonPass(g, color, draw) {
-  g.lineCap = 'round';
-  g.lineJoin = 'round';
-  g.strokeStyle = color;
   g.fillStyle = color;
   g.shadowColor = color;
   g.shadowBlur = 26;
   draw();
   g.shadowBlur = 8;
-  g.strokeStyle = '#ffffff';
   g.fillStyle = '#ffffff';
   draw();
   g.shadowBlur = 0;
 }
 
-/** Vertical katakana sign, the classic shape on a Japanese high street. */
-export function kanaTexture(ctx, text, color) {
+/** Vertical sign with stacked letters. Also returns its height as a multiple of its width. */
+function verticalTexture(ctx, text, color) {
+  const cell = 104, width = 168, pad = 22;
   const chars = [...text];
-  const cell = 118;
+  const height = chars.reduce((h, c) => h + (c === ' ' ? cell / 2 : cell), pad * 2);
   const canvas = document.createElement('canvas');
-  canvas.width = 168;
-  canvas.height = cell * chars.length + 44;
+  canvas.width = width;
+  canvas.height = height;
   const g = canvas.getContext('2d');
   g.fillStyle = '#04050d';
-  g.fillRect(0, 0, canvas.width, canvas.height);
+  g.fillRect(0, 0, width, height);
   g.strokeStyle = color; g.lineWidth = 3; g.globalAlpha = 0.5;
-  g.strokeRect(7, 7, canvas.width - 14, canvas.height - 14);
+  g.strokeRect(7, 7, width - 14, height - 14);
   g.globalAlpha = 1;
-  g.lineWidth = 8;
-  neonPass(g, color, () => chars.forEach((c, i) => strokeGlyph(g, c, 28, 22 + i * cell, 112)));
-  return ctx.texture(canvas);
+  g.textAlign = 'center';
+  g.textBaseline = 'middle';
+  g.font = '800 88px "Archivo Expanded", Arial, sans-serif';
+  neonPass(g, color, () => {
+    let y = pad;
+    chars.forEach((c) => {
+      if (c !== ' ') g.fillText(c, width / 2, y + cell / 2);
+      y += c === ' ' ? cell / 2 : cell;
+    });
+  });
+  return { map: ctx.texture(canvas), ratio: height / width };
 }
 
-/** Latin LED panel for billboards. */
+/** LED panel for billboards. */
 export function textTexture(ctx, lines, color, opts = {}) {
   const canvas = document.createElement('canvas');
   canvas.width = opts.width || 512;
@@ -111,24 +79,27 @@ export async function buildSigns(ctx) {
     await ctx.pause(); // drawing glowing text to a canvas is slow: never do many in one go
   };
 
-  const kana = (text, color) => kanaTexture(ctx, text, color);
+  const vertical = (text, color, x, y, z, w, ry, power) => {
+    const { map, ratio } = verticalTexture(ctx, text, color);
+    return sign(map, x, y, z, w, w * ratio, ry, power);
+  };
 
   // rooftop towers either side of the hero view (positions follow LANDMARKS in city.js)
-  await sign(kana('フルスタック', VIOLET), -22.3, 15, -16.4, 3.4, 14.2, 0, 2.9);
-  await sign(kana('コード', CYAN), 24.3, 12, -20, 3.2, 7.4, 0, 2.6);
-  await sign(kana('ネオン', AMBER), 33, 7, -19.9, 2.8, 6.6, 0, 2.2);
+  await vertical('FULL STACK', VIOLET, -22.3, 15, -16.4, 2.3, 0, 2.9);
+  await vertical('CODE', CYAN, 24.3, 12, -20, 2.7, 0, 2.6);
+  await vertical('NEON', AMBER, 33, 7, -19.9, 2.4, 0, 2.2);
   await sign(textTexture(ctx, ['</>'], CYAN, { width: 512, height: 256, size: 130 }), -33, 27, -16.4, 11, 5.5, 0, 2.8, 0.1);
-  await sign(kana('ヨル', BLUE), 29, 3, -19.9, 2.2, 3.6, 0, 2.2);
+  await vertical('DEV', BLUE, 29, 3, -19.9, 1.7, 0, 2.2);
   await sign(textTexture(ctx, ['MERN', 'STACK'], AMBER, { width: 512, height: 512, size: 92 }), 40, 34, -44.4, 11, 11, 0, 1.9, 0.08);
-  await sign(kana('カイハツ', CYAN), -37, 9, -44.4, 3.2, 10, 0, 2.5);
+  await vertical('BUILD', CYAN, -37, 9, -44.4, 3, 0, 2.5);
 
   // the canyon: one billboard per project, passed during the Projects section
   await sign(textTexture(ctx, ['AI INTERVIEW', 'PLATFORM'], CYAN, { width: 1024, height: 512, size: 96 }), -25.4, 3, -84, 13, 6.5, Math.PI / 2, 2.8, 0.08);
   await sign(textTexture(ctx, ['SPACE', 'SHOOTER'], AMBER, { width: 1024, height: 512, size: 116 }), -14.4, 1, -114, 13, 6.5, -Math.PI / 2, 2.5, 0.08);
   await sign(textTexture(ctx, ['TASK', 'MANAGEMENT'], VIOLET, { width: 1024, height: 512, size: 104 }), -25.9, -3, -138, 13, 6.5, Math.PI / 2, 2.7, 0.08);
-  await sign(kana('フルスタック', AMBER), -13.2, 6, -86, 3, 12.6, -Math.PI / 2, 2.4);
-  await sign(kana('コード', VIOLET), -26.4, -6, -110, 3, 7, Math.PI / 2, 2.6);
-  await sign(kana('ネオン', CYAN), -12.2, 8, -142, 3, 7, -Math.PI / 2, 2.6);
+  await vertical('FULL STACK', AMBER, -13.2, 6, -86, 2.05, -Math.PI / 2, 2.4);
+  await vertical('CODE', VIOLET, -26.4, -6, -110, 2.55, Math.PI / 2, 2.6);
+  await vertical('NEON', CYAN, -12.2, 8, -142, 2.55, -Math.PI / 2, 2.6);
 
   return {
     object: group,

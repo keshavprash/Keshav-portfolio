@@ -9,7 +9,6 @@
 @font-face { font-family: "Instrument Serif"; src: url("../fonts/site/instrument-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "Manrope"; src: url("../fonts/site/manrope.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
 @font-face { font-family: "JetBrains Mono"; src: url("../fonts/site/jetbrains-mono.woff2") format("woff2"); font-weight: 400 500; font-display: swap; }
-@font-face { font-family: "Zen Kaku JP"; src: url("../fonts/site/zen-kaku-jp-subset.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 
 :root {
   --ink: #04060f;
@@ -29,7 +28,6 @@
   --f-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --f-body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, Consolas, Menlo, monospace;
-  --f-jp: "Zen Kaku JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans CJK JP", sans-serif;
 
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --nav-h: 76px;
@@ -211,7 +209,6 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
 .hero__lead em { color: var(--cyan); }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(22px, 3.4vh, 36px); }
 
-.hero__jp { position: absolute; left: clamp(10px, 1.5vw, 26px); bottom: clamp(56px, 11vh, 112px); writing-mode: vertical-rl; font: 500 0.8rem/1 var(--f-jp); letter-spacing: 0.34em; color: var(--text); }
 
 .scrollcue { position: absolute; right: clamp(20px, 4.4vw, 64px); bottom: clamp(24px, 4.6vh, 44px); display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font: 500 0.74rem/1 var(--f-mono); letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; }
 .scrollcue__rail { position: relative; display: block; width: 1px; height: 56px; background: rgba(240, 243, 255, 0.28); overflow: hidden; }
@@ -219,22 +216,14 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
 @media (prefers-reduced-motion: no-preference) { .scrollcue__rail i { animation: scrollcue 2.2s var(--ease) infinite; } }
 @keyframes scrollcue { 0% { transform: translateY(-24px); } 100% { transform: translateY(60px); } }
 
-/* Play/Pause for the 3D scene. Shown only while the 3D scene is available. */
-.scene-toggle { position: absolute; right: calc(clamp(20px, 4.4vw, 64px) + 112px); bottom: clamp(30px, 5.4vh, 50px); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(8, 11, 26, 0.72); color: var(--text); font: 500 0.76rem/1 var(--f-mono); letter-spacing: 0.04em; cursor: pointer; transition: border-color 0.25s, color 0.25s; }
-.scene-toggle[hidden] { display: none; }
-.scene-toggle:hover { border-color: var(--cyan); color: var(--cyan); }
-.scene-toggle svg { width: 14px; height: 14px; fill: currentColor; }
-.scene-toggle[data-state="playing"] .scene-toggle__play, .scene-toggle[data-state="paused"] .scene-toggle__pause { display: none; }
-.scene-toggle[data-state="paused"] { border-color: var(--cyan); color: var(--cyan); }
-
 /* Hero entrance: text is usable immediately, this only adds polish */
 @media (prefers-reduced-motion: no-preference) {
-  .js .hero__eyebrow, .js .hero__line, .js .hero__role, .js .hero__lead, .js .hero__cta, .js .hero__jp, .js .scrollcue { animation: rise 0.9s var(--ease) both; }
+  .js .hero__eyebrow, .js .hero__line, .js .hero__role, .js .hero__lead, .js .hero__cta, .js .scrollcue { animation: rise 0.9s var(--ease) both; }
   .js .hero__line--2 { animation-delay: 0.06s; }
   .js .hero__role { animation-delay: 0.14s; }
   .js .hero__lead { animation-delay: 0.2s; }
   .js .hero__cta { animation-delay: 0.26s; }
-  .js .scrollcue, .js .hero__jp { animation-delay: 0.5s; }
+  .js .scrollcue { animation-delay: 0.5s; }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
@@ -247,7 +236,6 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
 .head--wide { max-width: none; }
 .slate { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; font: 500 0.78rem/1 var(--f-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); }
 .slate__no { color: var(--cyan); }
-.slate__jp { font: 500 0.82rem/1 var(--f-jp); letter-spacing: 0.2em; color: var(--muted); }
 
 .title { font: 400 clamp(2.5rem, 5.6vw, 5rem)/1.02 var(--f-serif); letter-spacing: -0.01em; text-wrap: balance; text-shadow: 0 2px 26px rgba(4, 6, 15, 0.86), 0 0 2px rgba(4, 6, 15, 0.5); }
 .title em { color: var(--cyan); }
@@ -354,7 +342,6 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
    Responsive
    ========================================================================== */
 @media (max-width: 1100px) {
-  .hero__jp { display: none; }
   .exp__body { margin-left: 0; }
   .about__body { width: 100%; }
   .project, .project--flip { grid-template-columns: minmax(0, 1fr); }
@@ -370,7 +357,6 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
   .hero__name { font-size: clamp(2.5rem, 12.8vw, 6rem); }
   .hero__lead { font-size: clamp(1.45rem, 5.4vw, 2.1rem); }
   .scrollcue { right: auto; left: clamp(20px, 4.4vw, 64px); bottom: 20px; }
-  .scene-toggle { right: clamp(20px, 4.4vw, 64px); bottom: 20px; }
   .scrollcue__rail { width: 40px; height: 1px; }
   .scrollcue__rail i { width: 16px; height: 1px; animation-name: scrollcueX !important; }
   @keyframes scrollcueX { 0% { transform: translateX(-18px); } 100% { transform: translateX(44px); } }
@@ -401,7 +387,7 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
 @media (max-width: 860px) and (max-height: 640px) {
   .hero__eyebrow { display: none; }
   .hero__inner { padding-bottom: 66px; }
-  .scrollcue, .scene-toggle { bottom: 10px; }
+  .scrollcue { bottom: 10px; }
 }
 
 @media (max-width: 340px) {

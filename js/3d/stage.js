@@ -8,21 +8,12 @@ const assets = {
   characterWind: 'images/art/character-wind.webp',
 };
 
-/* Reduced motion means the scene holds still, not that it disappears. This includes Windows' "Animation effects"
-   switch, which is also turned off by the "Adjust for best performance" setting. An explicit choice made with the
-   Play/Pause button wins, and is remembered. */
-const MOTION_KEY = 'kp-scene-motion';
+/* The scene starts by itself. The exception is reduced motion, where it holds still rather than disappearing. That
+   includes Windows' "Animation effects" switch, which "Adjust for best performance" also turns off.
+   ?motion=on previews the moving scene on such a device. */
 const reduceQuery = matchMedia('(prefers-reduced-motion: reduce)');
-const readChoice = () => { try { return localStorage.getItem(MOTION_KEY); } catch (e) { return null; } };
-const writeChoice = (value) => {
-  try { if (value) localStorage.setItem(MOTION_KEY, value); else localStorage.removeItem(MOTION_KEY); } catch (e) { /* private mode */ }
-};
-const shouldHoldStill = () => {
-  const choice = readChoice();
-  if (choice === 'play') return false;
-  if (choice === 'pause') return true;
-  return reduceQuery.matches;
-};
+const previewMotion = new URLSearchParams(location.search).get('motion') === 'on';
+const shouldHoldStill = () => reduceQuery.matches && !previewMotion;
 
 export async function bootStage() {
   const root = document.documentElement;
@@ -38,8 +29,6 @@ export async function bootStage() {
     status.stage = '2d';
     status.reason = reason;
     root.dataset.stage = '2d';
-    const toggle = document.getElementById('sceneToggle');
-    if (toggle) toggle.hidden = true;
     startRain2D();
   };
 
@@ -68,20 +57,13 @@ export async function bootStage() {
         assets,
         onContextChange(state) {
           if (state === 'lost') use2D('context-lost');
-          else {
-            stopRain2D();
-            status.stage = '3d';
-            root.dataset.stage = '3d';
-            const toggle = document.getElementById('sceneToggle');
-            if (toggle) toggle.hidden = false;
-          }
+          else { stopRain2D(); status.stage = '3d'; root.dataset.stage = '3d'; }
         },
       });
       status.instance = instance;
       wire(instance, () => use2D('too-slow'));
       instance.renderNow();
       instance.setStill(shouldHoldStill());
-      syncToggle(instance);
       // let the first frame reach the screen before fading it in
       requestAnimationFrame(() => {
         status.stage = '3d';
@@ -98,15 +80,6 @@ export async function bootStage() {
   const idle = (fn) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 1400 }) : setTimeout(fn, 300));
   if (document.readyState === 'complete') idle(load);
   else window.addEventListener('load', () => idle(load), { once: true });
-}
-
-function syncToggle(instance) {
-  const toggle = document.getElementById('sceneToggle');
-  if (!toggle) return;
-  const still = instance.isStill();
-  toggle.hidden = false;
-  toggle.dataset.state = still ? 'paused' : 'playing';
-  toggle.querySelector('span').textContent = still ? 'Play scene' : 'Pause scene';
 }
 
 function wire(instance, fallBack) {
@@ -142,25 +115,11 @@ function wire(instance, fallBack) {
   let ro = null;
   if (main && 'ResizeObserver' in window) { ro = new ResizeObserver(remeasure); ro.observe(main); }
 
-  const toggle = document.getElementById('sceneToggle');
-  const onToggle = () => {
-    const play = instance.isStill();
-    writeChoice(play ? 'play' : 'pause');
-    instance.setStill(!play);
-    syncToggle(instance);
-  };
-  if (toggle) toggle.addEventListener('click', onToggle);
-
-  // the most recent signal wins: turning reduced motion on or off mid-visit overrides an earlier button choice
-  const onReduceChange = (e) => {
-    writeChoice(null);
-    instance.setStill(e.matches);
-    syncToggle(instance);
-  };
+  // turning reduced motion on or off mid-visit takes effect at once
+  const onReduceChange = () => instance.setStill(shouldHoldStill());
   reduceQuery.addEventListener('change', onReduceChange);
 
   const unload = () => {
-    if (toggle) { toggle.removeEventListener('click', onToggle); toggle.hidden = true; }
     reduceQuery.removeEventListener('change', onReduceChange);
     window.removeEventListener('scroll', onScroll);
     window.removeEventListener('pointermove', onPointer);
