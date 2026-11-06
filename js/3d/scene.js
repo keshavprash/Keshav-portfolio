@@ -140,8 +140,11 @@ export async function createScene({ canvas, context, quality, assets, onContextC
   for (const t of tracked) { renderer.initTexture(t); await pause(); }
 
 
+  let still = false;
+  let stillShot = -1;
+
   const update = (dt) => {
-    frame.time += dt;
+    if (!still) frame.time += dt;
     ctx.uniforms.uTime.value = frame.time;
     frameFromRig(rig.update(dt, frame.time));
     for (let i = 0; i < parts.length; i++) {
@@ -157,6 +160,25 @@ export async function createScene({ canvas, context, quality, assets, onContextC
     }
   };
 
+  /* Reduced motion: one complete frame on demand. No loop runs, so nothing moves and the GPU rests. */
+  const drawStill = () => {
+    frame.still = true;
+    update(0); // no time passes, so a redraw is always the identical picture
+    render();
+    stillShot = rig.target;
+  };
+
+  /* What a frame really costs, including the GPU. Two frames, because reflections refresh every other frame. */
+  const costProbe = new Uint8Array(4);
+  const measureCost = () => {
+    const gl = renderer.getContext();
+    const t0 = performance.now();
+    render();
+    render();
+    gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, costProbe); // waits for the GPU to finish
+    return (performance.now() - t0) / 2;
+  };
+
   /* Governor steps, in the order they cost the least visual quality. */
   const degradeSteps = [
     () => { if (dpr > 1) { dpr = Math.max(1, dpr - 0.25); applySize(true); return `dpr ${dpr}`; } return null; },
@@ -168,6 +190,7 @@ export async function createScene({ canvas, context, quality, assets, onContextC
   const loop = new Loop({
     update,
     render,
+    measureCost,
     onDegrade(fps) {
       if (locked) return;
       for (const step of degradeSteps) {
@@ -185,10 +208,13 @@ export async function createScene({ canvas, context, quality, assets, onContextC
   };
   const onContextRestored = () => {
     if (onContextChange) onContextChange('restored');
-    loop.start();
+    if (still) drawStill();
+    else loop.start();
   };
+  const onVisibility = () => { if (still && !document.hidden) drawStill(); };
   canvas.addEventListener('webglcontextlost', onContextLost);
   canvas.addEventListener('webglcontextrestored', onContextRestored);
+  document.addEventListener('visibilitychange', onVisibility);
 
   const api = {
     tier: q.tier,
@@ -204,21 +230,45 @@ export async function createScene({ canvas, context, quality, assets, onContextC
     frame,
     start() { loop.start(); },
     stop() { loop.stop(); },
-    resize() { applySize(false); },
-    remeasure() { rig.measure(window.innerHeight); rig.setScroll(window.scrollY || 0); },
-    setScroll(y) { rig.setScroll(y); },
+    resize() { applySize(false); if (still) drawStill(); },
+    remeasure() {
+      rig.measure(window.innerHeight);
+      rig.setScroll(window.scrollY || 0);
+      if (still && rig.target !== stillShot) drawStill();
+    },
+    setScroll(y) {
+      rig.setScroll(y);
+      if (still && rig.target !== stillShot) drawStill();
+    },
+    /** Holds the scene still (one frame, no loop) or sets it moving. */
+    setStill(on) {
+      still = on;
+      ctx.still = on;
+      rig.setStill(on);
+      rig.setScroll(window.scrollY || 0);
+      if (on) {
+        loop.stop();
+        if (frame.time < 1) frame.time = 14; // a settled moment, not the very first instant
+        drawStill();
+      } else {
+        frame.still = false;
+        loop.start();
+      }
+    },
+    isStill() { return still; },
     setPointer(x, y) { rig.setPointer(x, y); },
     setLowPower(on) { loop.setLowPower(on); },
     /** Draws one frame immediately (first paint, and tests). */
     renderNow() { update(0.016); render(); },
     stats() {
-      return { tier: q.tier, fps: Math.round(loop.fps), running: loop.running, frames: loop.renderedFrames, dpr, calls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures, log: api.log.slice() };
+      return { tier: q.tier, still, fps: Math.round(loop.fps), running: loop.running, frames: loop.renderedFrames, dpr, calls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures, log: api.log.slice() };
     },
     /** Frees all GPU resources and the WebGL context. */
     dispose() {
       loop.dispose();
       canvas.removeEventListener('webglcontextlost', onContextLost);
       canvas.removeEventListener('webglcontextrestored', onContextRestored);
+      document.removeEventListener('visibilitychange', onVisibility);
       const released = disposeTree(scene);
       tracked.forEach((t) => t.dispose());
       if (ctx.reflector) ctx.reflector.dispose();

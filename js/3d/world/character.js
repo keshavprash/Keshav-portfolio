@@ -94,7 +94,7 @@ export async function buildCharacter(ctx) {
       const dx = camera.position.x - group.position.x;
       const dz = camera.position.z - group.position.z;
       const want = Math.atan2(dx, dz);
-      group.rotation.y += (want - group.rotation.y) * (1 - Math.exp(-dt * 4));
+      group.rotation.y = frame.still ? want : group.rotation.y + (want - group.rotation.y) * (1 - Math.exp(-dt * 4));
       const pulse = 1.0 + Math.sin(time * 2.1) * 0.02;
       figureMat.uniforms.uLight.value = pulse;
       windMat.uniforms.uLight.value = pulse * 0.92;

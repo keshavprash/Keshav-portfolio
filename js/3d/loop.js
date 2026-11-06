@@ -1,13 +1,16 @@
 /* Animation loop. Owns requestAnimationFrame, pausing and the frame-rate governor.
    - Stops completely while the tab is hidden.
    - Drops to ~30 fps when the visitor is reading below the hero and not scrolling.
-   - Steps quality down (never up) if the device cannot hold a usable frame rate. */
+   - Steps quality down (never up) if the device cannot hold a usable frame rate. A low frame rate alone
+     is not enough: browsers throttle a window covered by another one to about 1 fps, so the real cost
+     of drawing a frame is measured before anything is downgraded. */
 
 export class Loop {
-  constructor({ update, render, onDegrade }) {
+  constructor({ update, render, onDegrade, measureCost }) {
     this.update = update;
     this.render = render;
     this.onDegrade = onDegrade;
+    this.measureCost = measureCost;
     this.raf = 0;
     this.running = false;
     this.wanted = false;
@@ -81,13 +84,18 @@ export class Loop {
       this.frames = 0;
       this.sampleStart = now;
       const floor = this.lowPower ? 22 : 34;
-      if (this.fps < floor) {
+      if (this.fps < floor && this.isReallySlow(floor)) {
         this.slowSamples++;
         if (this.slowSamples >= 2) { this.slowSamples = 0; this.onDegrade(this.fps); }
       } else {
         this.slowSamples = 0;
       }
     }
+  }
+
+  /** True only if drawing a frame really takes longer than the frame rate allows. */
+  isReallySlow(floor) {
+    return !this.measureCost || this.measureCost() > 1000 / floor;
   }
 
   dispose() {

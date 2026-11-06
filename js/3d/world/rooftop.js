@@ -132,7 +132,7 @@ function buildDeck(ctx, addAnimated) {
     reflector.onBeforeRender = function (renderer, scene, camera) {
       if (!ctx.reflectionsEnabled) return;
       ctx.reflectTick = (ctx.reflectTick || 0) + 1;
-      if (ctx.reflectTick % 2) return;
+      if (ctx.reflectTick % 2 && !ctx.still) return;
       const hidden = ctx.hideInReflection;
       hidden.forEach((o) => { o.visible = false; });
       render.call(this, renderer, scene, camera);

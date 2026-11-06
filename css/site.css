@@ -219,6 +219,14 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
 @media (prefers-reduced-motion: no-preference) { .scrollcue__rail i { animation: scrollcue 2.2s var(--ease) infinite; } }
 @keyframes scrollcue { 0% { transform: translateY(-24px); } 100% { transform: translateY(60px); } }
 
+/* Play/Pause for the 3D scene. Shown only while the 3D scene is available. */
+.scene-toggle { position: absolute; right: calc(clamp(20px, 4.4vw, 64px) + 112px); bottom: clamp(30px, 5.4vh, 50px); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(8, 11, 26, 0.72); color: var(--text); font: 500 0.76rem/1 var(--f-mono); letter-spacing: 0.04em; cursor: pointer; transition: border-color 0.25s, color 0.25s; }
+.scene-toggle[hidden] { display: none; }
+.scene-toggle:hover { border-color: var(--cyan); color: var(--cyan); }
+.scene-toggle svg { width: 14px; height: 14px; fill: currentColor; }
+.scene-toggle[data-state="playing"] .scene-toggle__play, .scene-toggle[data-state="paused"] .scene-toggle__pause { display: none; }
+.scene-toggle[data-state="paused"] { border-color: var(--cyan); color: var(--cyan); }
+
 /* Hero entrance: text is usable immediately, this only adds polish */
 @media (prefers-reduced-motion: no-preference) {
   .js .hero__eyebrow, .js .hero__line, .js .hero__role, .js .hero__lead, .js .hero__cta, .js .hero__jp, .js .scrollcue { animation: rise 0.9s var(--ease) both; }
@@ -362,6 +370,7 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
   .hero__name { font-size: clamp(2.5rem, 12.8vw, 6rem); }
   .hero__lead { font-size: clamp(1.45rem, 5.4vw, 2.1rem); }
   .scrollcue { right: auto; left: clamp(20px, 4.4vw, 64px); bottom: 20px; }
+  .scene-toggle { right: clamp(20px, 4.4vw, 64px); bottom: 20px; }
   .scrollcue__rail { width: 40px; height: 1px; }
   .scrollcue__rail i { width: 16px; height: 1px; animation-name: scrollcueX !important; }
   @keyframes scrollcueX { 0% { transform: translateX(-18px); } 100% { transform: translateX(44px); } }
@@ -392,7 +401,7 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
 @media (max-width: 860px) and (max-height: 640px) {
   .hero__eyebrow { display: none; }
   .hero__inner { padding-bottom: 66px; }
-  .scrollcue { bottom: 10px; }
+  .scrollcue, .scene-toggle { bottom: 10px; }
 }
 
 @media (max-width: 340px) {
@@ -409,7 +418,7 @@ html:not(.js) .layer--roof, html[data-stage="2d"] .layer--roof { background-imag
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transition-delay: 0s !important; }
   .scrollcue__rail i { transform: translateY(18px); }
 }
 

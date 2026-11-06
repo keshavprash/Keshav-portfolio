@@ -30,6 +30,7 @@ export class CameraRig {
     this.pointerDamped = new THREE.Vector2();
     this.anchors = [0];
     this.narrow = false;
+    this.still = false;
     this.pos = new THREE.Vector3();
     this.look = new THREE.Vector3();
     this.state = { exposure: 1, dawn: 0, rain: 1, shot: 0 };
@@ -67,24 +68,32 @@ export class CameraRig {
   setScroll(y) {
     const a = this.anchors;
     const n = a.length - 1;
-    if (y <= a[0]) { this.target = 0; return; }
-    if (y >= a[n]) { this.target = n; return; }
-    for (let i = 0; i < n; i++) {
-      if (y < a[i + 1]) {
-        this.target = i + smooth((y - a[i]) / (a[i + 1] - a[i]));
-        return;
+    let shot = n;
+    if (y <= a[0]) shot = 0;
+    else if (y < a[n]) {
+      for (let i = 0; i < n; i++) {
+        if (y < a[i + 1]) { shot = i + smooth((y - a[i]) / (a[i + 1] - a[i])); break; }
       }
     }
+    // holding still: the camera never travels, it cuts to the nearest shot
+    this.target = this.still ? Math.round(shot) : shot;
   }
 
-  setPointer(x, y) { this.pointer.set(x, y); }
+  setPointer(x, y) { if (!this.still) this.pointer.set(x, y); }
+
+  /** Reduced motion: no camera travel and no pointer parallax. */
+  setStill(on) {
+    this.still = on;
+    if (on) { this.pointer.set(0, 0); this.pointerDamped.set(0, 0); }
+  }
 
   /** Jump without damping, used when the page loads part-way down. */
   snap() { this.t = this.target; }
 
   update(dt, time) {
     const n = SHOTS.length - 1;
-    this.t += (this.target - this.t) * (1 - Math.exp(-dt * 3.4));
+    if (this.still) this.t = this.target;
+    else this.t += (this.target - this.t) * (1 - Math.exp(-dt * 3.4));
     this.pointerDamped.lerp(this.pointer, 1 - Math.exp(-dt * 2.6));
 
     const u = Math.min(this.t / n, 1);

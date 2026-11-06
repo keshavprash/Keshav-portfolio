@@ -5,7 +5,9 @@
      high    desktop with a dedicated GPU: reflections, MSAA, full bloom
      medium  integrated GPUs and capable phones: reduced resolution and effects
      low     weak phones: no post-processing, no reflections, minimal rain
-     2d      no WebGL2, software rendering, data saver or reduced motion: original 2D scene
+     2d      no WebGL2, software rendering or data saver: original 2D scene
+
+   Reduced motion does not choose a tier. It decides whether the scene moves, see stage.js.
 
    ?quality=high|medium|low|2d overrides detection (useful for testing a specific path). */
 
@@ -58,7 +60,6 @@ export async function detectTier() {
   if (forced === '2d') return { tier: '2d', reason: 'requested' };
 
   if (!forced) {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return { tier: '2d', reason: 'reduced-motion' };
     const conn = navigator.connection;
     if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return { tier: '2d', reason: 'data-saver' };
   }
